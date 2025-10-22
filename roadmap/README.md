@@ -59,6 +59,6 @@ Concernant la pipeline, nous allons utiliser les packages suivants pour le trait
 -plotly ou leaflet : visualisations interactives (carte et graphiques dynamiques)
 -quarto : génération du site web et intégration du rapport
 
-Nous avons également créée des **branches gits**; la branche main qui est la version stable du projet, la branche **Data** dans laquelle on va étudier les datas et la branche **carte-interactive** dans laquelle on va créer les cartes interactives ainsi que la branche **site-web** dans laquelle on va créer le site web.
+Nous avons également créée des **branches gits**; la branche **main** qui est la version stable du projet, la branche **Data** dans laquelle on va étudier les datas et la branche **carte-interactive** dans laquelle on va créer les cartes interactives ainsi que la branche **site-web** dans laquelle on va créer le site web.
 
 
