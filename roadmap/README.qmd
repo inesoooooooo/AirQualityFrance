@@ -1,0 +1,12 @@
+---
+title: "Aperçu du Projet à Mi-Parcours : AirQualityFrabce"
+author: 
+  - "REMILA Dalia (22416114)"
+  - "Ines Camus (Numéro Étudiant)" 
+  - Myriam ... (Numéro Étudiant)
+date: " 22 Octobre 2025"
+format: html
+
+# 🌍 Nom du projet
+AirQualityFrance — Étude de la pollution de l’air en France.
+
