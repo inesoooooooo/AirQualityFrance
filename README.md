@@ -1,9 +1,9 @@
 # my_module_name
-## Diagramme de Gantt – Projet Qualité de l’air
+## Diagramme de Gantt – AirQualityFrance
 
 ```mermaid
 gantt
-    title Projet Qualité de l’air - Gantt Diagram (Avec légende)
+    title AirQualityFrance - Gantt Diagram 
     dateFormat  YYYY-MM-DD
     axisFormat  %d-%m
 
