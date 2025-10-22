@@ -1,7 +1,7 @@
 # my_module_name
 ## Introduction:
 
-Nous avons décidé, d’un commun accord, de réaliser un site web sur **la qualité de l’air en France métropolitaine**. Nous analyserons l’évolution de la qualité de l’air en France entre **2020 et 2024**. Le public visé par ce site web sont **les personnes sensibles ou vulnérables** souhaitant identifier les ville dans laquelle elles peuvent s'épanouir sans compromettre leur santé physique. Ce sujet nous tientà coeur car malheureusement de plus en plus de personnes décédent chaque années à causes des maladies liée à une trop forte exposition à la pollution. 
+Nous avons décidé, d’un commun accord, de réaliser un site web sur **la qualité de l’air en France métropolitaine**. Nous analyserons l’évolution de la qualité de l’air en France entre **2020 et 2024**. Le public visé par ce site web sont **les personnes sensibles ou vulnérables** souhaitant identifier les ville dans laquelle elles peuvent s'épanouir sans compromettre leur santé physique. Ce sujet nous tient à coeur car malheureusement de plus en plus de personnes décédent chaque années à causes des maladies liée à une trop forte exposition à la pollution. 
 Nous aimerions ainsi mieux comprendre :
 - comment la qualité de l’air a évolué au fil des années,  
 - quelles villes ont réussi à améliorer la situation,  
