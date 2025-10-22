@@ -17,7 +17,7 @@ Les utilisateurs pourront :
 - choisir le polluant qu’ils souhaitent analyser,
 -  consulter des **cartes intercatives** représentant le niveau de pollution dans les grandes villes françaises,
 -  et observer des **graphiques temporels** illustrant la variation des principaux polluants sélectionnés pour chaque ville au fil des années.
-Pour garantir une bonne organisation et réussir à allier la continuité du projet tout au long du semestre nous avons établit le diagramme de Gantt qui suit :
+  Afin garantir une bonne organisation et réussir à allier la continuité du projet tout au long du semestre nous avons établit le diagramme de Gantt qui suit :
 
 
 ## Diagramme de Gantt – AirQualityFrance
