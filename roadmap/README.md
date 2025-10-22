@@ -43,6 +43,7 @@ gantt
     Déploiement site web / app (Inès + ???)                         :ines, 2025-12-06, 2025-12-09
     Répétition présentation orale (Tous)                            :tous, 2025-12-10, 2025-12-11
     Présentation finale (Tous)                                      :tous, 2025-12-12, 2025-12-12
+```
 
 Nous avons comme objectif que notre site ressemble aux croquis suivant qu'on a pu faire :
 
