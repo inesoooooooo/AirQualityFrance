@@ -1,15 +1,18 @@
 # my_module_name
-Introduction:
+## Introduction:
 
-Nous avons décidé, d’un commun accord, de réaliser un site web sur la qualité de l’air en France métropolitaine. Nous analyserons l’évolution de la qualité de l’air en France entre 2020 et 2024. Malheureusement, nous n’avons pas encore étudié les données de cette année, car les datasets ne sont pas encore complets.
-Ce sujet est important pour nous, on aimerais bien en apprendre plus sur l'évolution de la polution de l'air et notamment la différence entre chaque ville, et voir si des villes arrievnt à améliorer la qualité de l'air et si d'autres justement n'y arrivent pas.
+Nous avons décidé, d’un commun accord, de réaliser un site web sur **la qualité de l’air en France métropolitaine**. Nous analyserons l’évolution de la qualité de l’air en France entre **2020 et 2024**. Le public visé par ce site web sont les personnes sensibles ou vulnérables souhaitant identifier les ville dans laquelle elles peuvent s'épanouir sans compromettre leur santé physique. Notamment car de plus en plus de personnes décéde suite à des maladies en répercussion d'une trop grosse exposition à la pollution. 
+Nous aimerions ainsi mieux comprendre :
+- comment la qualité de l’air a évolué au fil des années,  
+- quelles villes ont réussi à améliorer la situation,  
+- et lesquelles rencontrent encore des difficultés à réduire la pollution.
 
-Problèmatique : Comment a évolué la qualité de l'air en France métropolitaine entre 2020 et 2024 ?
+## Problèmatique : Comment a évolué la qualité de l'air en France métropolitaine entre 2020 et 2024 ?
 
-Développement :
+## Développement :
 
-Pour répondre à ce sujet, nous allons créer un site web dans lequel se trouvera des cartes interactives ou on pourra voir l'évolution de la qualité de l'air entre 2020 et 2024. Pour s'organiser et réussir à allier la continuité du projet tout au long du semestre nous avosn établit le diagramme de Gantt qui suit :
-
+Pour répondre à ce sujet, nous allons créer un site web dans lequel on pourra voir l'évolution de la qualité de l'air entre 2020 et 2024. Les utilisateurs pourront utiliser des **cartes intercatives** affichant la pollution par ville, des **graphiques temporels** montrant l'évolution des polluants ainsi que ...
+Pour s'organiser et réussir à allier la continuité du projet tout au long du semestre nous avons établit le diagramme de Gantt qui suit :
 
 
 ## Diagramme de Gantt – AirQualityFrance
@@ -46,4 +49,11 @@ gantt
 ```
 
 Nous avons comme objectif que notre site ressemble aux croquis suivant qu'on a pu faire :
+
+Concernant l'architecture du site, nous avons un dossier **data** où va se trouver toutes les datas qu'on va utiliser dans ce dossier on a deux sous dossiers, dans le premier il y a les datas brut et dans le deuxième se trouvera les datas qu'on a nettoyé. Nous avons également un dossier **images** dans lequel se trouve l'intégralité des croquis qu'on a pu faire et pour nous permettre de visualiser à quoi notre site doit aboutir. De plus, nous avons également un dossier **site** où va se trouver tout les fichiers menant à la création du site web. 
+
+Concernant la pipeline, nous allons utilisés les packages suivant : numpy, pandas, matplotlib, seaborn.dznnzndnnznd
+
+Nous avons également créée des branches gits; la branche main qui est la version stable du projet, la branche 
+
 
