@@ -1,17 +1,17 @@
 # my_module_name
 ## Introduction:
 
-Nous avons décidé, d’un commun accord, de réaliser un site web sur **la qualité de l’air en France métropolitaine**. Nous analyserons l’évolution de la qualité de l’air en France entre **2020 et 2024**. Le public visé par ce site web sont **les personnes sensibles ou vulnérables** souhaitant identifier les ville dans laquelle elles peuvent s'épanouir sans compromettre leur santé physique. Ce sujet nous tient à coeur car malheureusement de plus en plus de personnes décédent chaque années à causes des maladies liée à une trop forte exposition à la pollution. 
+Nous avons décidé, d’un commun accord, de réaliser un site web sur **la qualité de l’air en France métropolitaine**. Nous analyserons l’évolution de la qualité de l’air en France entre **2020 et 2024**. Le public visé par ce site web sont **les personnes sensibles ou vulnérables** souhaitant identifier les ville dans laquelle elles peuvent s'épanouir sans compromettre leur santé physique. Ce sujet nous tient particulièrement à cœur, car, malheureusement, on peut observer que  le nombre de personnes décédant chaque année des suites de maladies liées à une exposition excessive à la pollution ne cesse d’augmenter. Afin de prévenir certaines maladies ou de certains dommages plus importants, il est essentiel d'analyser ce sujet en profondeur.
 Nous aimerions ainsi mieux comprendre :
-- comment la qualité de l’air a évolué au fil des années,  
+- comment la qualité de l’air a-t-elle évolué au fil des années,  
 - quelles villes ont réussi à améliorer la situation,  
-- et lesquelles rencontrent encore des difficultés à réduire la pollution.
+- et quelles sont celles qui rencontrent encore des difficultés à réduire la pollution.
 
 ## Problèmatique : Comment a évolué la qualité de l'air en France métropolitaine entre 2020 et 2024 ?
 
 ## Développement :
 
-Pour répondre à ce sujet, nous allons créer un site web dans lequel on pourra voir l'évolution de la qualité de l'air entre 2020 et 2024. Les utilisateurs pourront utiliser des **cartes intercatives** affichant la pollution par ville, des **graphiques temporels** montrant l'évolution des polluants ainsi que ...
+Pour répondre au mieux à ce sujet, nous allons créer un site web intéractif permettant de visualiser l'évolution de la qualité de l'air entre 2020 et 2024. Les utilisateurs pourront choisir l’année à l’aide d’un **curseur allant de 2020 à 2024**, ainsi que le polluant qu’ils souhaitent analyser. Le site affichera alors des **cartes intercatives** représentant le niveau de pollution dans les grandes villes françaises, accompagnées de **graphiques temporels** illustrant la variation des principaux polluants sélectionnés pour chaque ville au fil des années.
 Pour s'organiser et réussir à allier la continuité du projet tout au long du semestre nous avons établit le diagramme de Gantt qui suit :
 
 
@@ -48,7 +48,7 @@ gantt
     Présentation finale (Tous)                                      :tous, 2025-12-12, 2025-12-12
 ```
 
-Nous avons comme objectif que notre site ressemble aux croquis suivant qu'on a pu faire :
+Nous avons comme objectif de réaliser un site qui ressemble aux mieux aux croquis qu'on a pu faire :
 
 Concernant l'architecture du site, nous avons un dossier **data** où va se trouver toutes les datas qu'on va utiliser dans ce dossier on a deux sous dossiers, dans le premier il y a les datas brut et dans le deuxième se trouvera les datas qu'on a nettoyé. Nous avons également un dossier **images** dans lequel se trouve l'intégralité des croquis qu'on a pu faire et pour nous permettre de visualiser à quoi notre site doit aboutir. De plus, nous avons également un dossier **site** où va se trouver tout les fichiers menant à la création du site web. 
 
