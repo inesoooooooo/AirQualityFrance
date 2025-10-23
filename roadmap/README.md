@@ -17,6 +17,10 @@ Les utilisateurs pourront :
 - choisir le polluant qu’ils souhaitent analyser (PM10, PM2,5 , NO2, O3...etc.),
 -  consulter des **cartes intercatives** représentant le niveau de pollution dans les grandes villes françaises,
 -  et observer des **graphiques temporels** illustrant la variation des principaux polluants sélectionnés pour chaque ville au fil des années.
+
+![](../images/Graphique.jpeg)
+![](../images/CarteInteractive.jpeg)
+
   Afin garantir une bonne organisation et réussir à allier la continuité du projet tout au long du semestre nous avons établit le diagramme de Gantt qui suit :
 
 
