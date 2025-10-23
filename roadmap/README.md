@@ -14,7 +14,7 @@ Nous aimerions ainsi mieux comprendre :
 Pour répondre au mieux à ce sujet, nous allons créer un site web intéractif permettant de visualiser l'évolution de la qualité de l'air entre 2020 et 2024.
 Les utilisateurs pourront :
 - sélectionner l’année à l’aide d’un **curseur allant de 2020 à 2024**,
-- choisir le polluant qu’ils souhaitent analyser,
+- choisir le polluant qu’ils souhaitent analyser ($\text{PM}_{10}$, $\text{PM}_{2.5}$, $\text{NO}_2$, $\text{O}_3$, etc.)
 -  consulter des **cartes intercatives** représentant le niveau de pollution dans les grandes villes françaises,
 -  et observer des **graphiques temporels** illustrant la variation des principaux polluants sélectionnés pour chaque ville au fil des années.
   Afin garantir une bonne organisation et réussir à allier la continuité du projet tout au long du semestre nous avons établit le diagramme de Gantt qui suit :
