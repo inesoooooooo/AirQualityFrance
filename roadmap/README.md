@@ -54,6 +54,8 @@ gantt
 ```
 
 Nous avons comme objectif de réaliser un site qui ressemble aux mieux aux croquis qu'on a pu faire :
+![](../images/Graphique.jpeg)
+![](../images/CarteInteractive.jpeg)
 
 Concernant l'architecture du site, nous avons un dossier **data** où va se trouver toutes les datas qu'on va utiliser dans ce dossier on a deux sous dossiers, dans le premier il y a les datas brut et dans le deuxième se trouvera les datas qu'on a nettoyé. Nous avons également un dossier **images** dans lequel se trouve l'intégralité des croquis qu'on a pu faire et pour nous permettre de visualiser à quoi notre site doit aboutir. De plus, nous avons également un dossier **site** où va se trouver tout les fichiers menant à la création du site web. 
 
