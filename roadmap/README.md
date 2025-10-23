@@ -78,4 +78,12 @@ Nous avons également créée des **branches gits**; la branche **main** qui est
 ## Conclusion
 Ce projet nous permettra de meiux comprendre et de mieux visualiser l'impact de la pollution sur la population française et de sensibiliser le public à l'importance de la qualté de l'air. Grâce à la visualisation interactive des données, les utilisateurs pourront identifier plus facilement les zones à risque et suivre l’évolution des efforts de réduction de la pollution dans différentes villes françaises. C'est aussi très importants car la pollution contribue à l’augmentation des maladies respiratoires et affecte directement la santé des habitants. On espére que ce site pourra sensibiliser le public et aider à prendre conscience de l’importance de préserver la qualité de l’air. Parce que c'est aujourd'hui que nous construisons notre future.
 
+## Informations générales
+
+**Nom du projet :** AirQualityFrance  
+**Groupe :** Myriam, Dalia, Inès ,...
+**Lien du dépôt GitHub :**
+**Université :** Université de Montpellier  
+**Date :** Octobre 2025
+
 
