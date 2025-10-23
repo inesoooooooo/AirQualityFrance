@@ -17,6 +17,7 @@ Les utilisateurs pourront :
 - choisir le polluant qu’ils souhaitent analyser (PM10, PM2,5 , NO2, O3...etc.),
 -  consulter des **cartes intercatives** représentant le niveau de pollution dans les grandes villes françaises,
 -  et observer des **graphiques temporels** illustrant la variation des principaux polluants sélectionnés pour chaque ville au fil des années.
+  Nous avons comme objectif de réaliser un site qui ressemble aux mieux aux croquis qu'on a pu faire :
 
 ![](../images/Graphique.jpeg)
 ![](../images/CarteInteractive.jpeg)
@@ -57,9 +58,6 @@ gantt
     Présentation finale (Tous)                                      :tous, 2025-12-12, 2025-12-12
 ```
 
-Nous avons comme objectif de réaliser un site qui ressemble aux mieux aux croquis qu'on a pu faire :
-![](../images/Graphique.jpeg)
-![](../images/CarteInteractive.jpeg)
 
 Concernant l'architecture du site, nous avons un dossier **data** où va se trouver toutes les datas qu'on va utiliser dans ce dossier on a deux sous dossiers, dans le premier il y a les datas brut et dans le deuxième se trouvera les datas qu'on a nettoyé. Nous avons également un dossier **images** dans lequel se trouve l'intégralité des croquis qu'on a pu faire et pour nous permettre de visualiser à quoi notre site doit aboutir. De plus, nous avons également un dossier **site** où va se trouver tout les fichiers menant à la création du site web. 
 
