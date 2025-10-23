@@ -23,7 +23,7 @@ Les utilisateurs pourront :
 
 Graphique de tendance temporelle par ville. Ce graphique dynamique permet d'analyser l'évolution des concentrations (en $\mu \text{g}/\text{m}^3$) de plusieurs polluants sur la période 2020-2024. Il est essentiel pour répondre à la problématique, car il révèle les tendances d'amélioration ou de dégradation spécifiques à chaque métropole. L'utilisateur peut ainsi suivre si sa ville cible maintient ses efforts de réduction au fil des années.
 
-![Croquis graphique temporelle](../images/Graphique.jpeg){width=50%}
+![](../images/CarteInteractive.jpeg)
 
 Cet outil, centré sur la France métropolitaine, permet à l'utilisateur de visualiser immédiatement les niveaux de pollution (symbolisés par des codes couleurs) pour une année spécifique sélectionnée via le curseur temporel. Le menu déroulant offre un filtrage instantané par polluant (PM10, PM2,5 , O3... etc.), facilitant l'identification des zones à risque pour les personnes sensibles.
 
