@@ -20,8 +20,11 @@ Les utilisateurs pourront :
   Nous avons comme objectif de réaliser un site qui ressemble aux mieux aux croquis qu'on a pu faire :
 
 ![](../images/Graphique.jpeg)
+
 Graphique de tendance temporelle par ville. Ce graphique dynamique permet d'analyser l'évolution des concentrations (en $\mu \text{g}/\text{m}^3$) de plusieurs polluants sur la période 2020-2024. Il est essentiel pour répondre à la problématique, car il révèle les tendances d'amélioration ou de dégradation spécifiques à chaque métropole. L'utilisateur peut ainsi suivre si sa ville cible maintient ses efforts de réduction au fil des années.
+
 ![](../images/CarteInteractive.jpeg)
+
 Cet outil, centré sur la France métropolitaine, permet à l'utilisateur de visualiser immédiatement les niveaux de pollution (symbolisés par des codes couleurs) pour une année spécifique sélectionnée via le curseur temporel. Le menu déroulant offre un filtrage instantané par polluant (PM10, PM2,5 , O3... etc.), facilitant l'identification des zones à risque pour les personnes sensibles.
 
   Afin garantir une bonne organisation et réussir à allier la continuité du projet tout au long du semestre nous avons établit le diagramme de Gantt qui suit :
