@@ -1,4 +1,4 @@
-# my_module_name
+# AirQualityFrance
 ## Introduction:
 
 Nous avons décidé, d’un commun accord, de réaliser un site web dédié à l'étude de **la qualité de l’air en France métropolitaine**. Ce projet vise à analyser l’évolution de la qualité de l’air sur la période **2020 et 2024** en se basant sur des données publiques et des visualisations intéractives. Le public visé par ce site web sont principalement **les personnes sensibles ou vulnérables** souhaitant identifier les villes dans lesquelles elles peuvent s'épanouir sans compromettre leur santé physique. Ce sujet nous tient particulièrement à cœur, car, malheureusement, on peut observer que  le nombre de personnes décédant chaque année des suites de maladies liées à une exposition excessive à la pollution ne cesse d’augmenter. Afin de prévenir certaines maladies ou d'éviter des dommages plus importants, il est essentiel d'analyser ce sujet en profondeur.
