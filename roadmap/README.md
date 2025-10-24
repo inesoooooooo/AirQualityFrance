@@ -88,8 +88,8 @@ Ce projet nous permettra de meiux comprendre et de mieux visualiser l'impact de 
 ## Informations générales
 
 **Nom du projet :** AirQualityFrance  
-**Groupe :** Myriam, Dalia, Inès ,...
-**Lien du dépôt GitHub :**
+**Groupe :** Myriam, Dalia, Inès, (Rachida)
+**Lien du dépôt GitHub :** 
 **Université :** Université de Montpellier  
 **Date :** Octobre 2025
 
