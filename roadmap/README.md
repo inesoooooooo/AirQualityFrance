@@ -89,7 +89,7 @@ Ce projet nous permettra de meiux comprendre et de mieux visualiser l'impact de 
 
 **Nom du projet :** AirQualityFrance  
 
-**Groupe :** Myriam, Dalia, Inès, (Rachida)
+**Groupe :** Myriam El Idrissi, Dalia Remila, Inès Camus, (Rachida)
 
 **Université :** Université de Montpellier  
 
