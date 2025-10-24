@@ -89,7 +89,6 @@ Ce projet nous permettra de meiux comprendre et de mieux visualiser l'impact de 
 
 **Nom du projet :** AirQualityFrance  
 **Groupe :** Myriam, Dalia, Inès, (Rachida)
-**Lien du dépôt GitHub :** 
 **Université :** Université de Montpellier  
 **Date :** Octobre 2025
 **Sources données :** https://www.geodair.fr/donnees/consultation
