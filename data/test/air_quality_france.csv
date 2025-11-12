@@ -1,0 +1,9 @@
+nom_com,latitude,longitude,polluant,valeur,annee
+Paris,48.8566,2.3522,NO2,28.3,2022
+Lyon,45.7640,4.8357,NO2,25.1,2022
+Marseille,43.2965,5.3698,NO2,30.2,2022
+Toulouse,43.6047,1.4442,PM2.5,18.5,2023
+Bordeaux,44.8378,-0.5792,PM2.5,15.3,2023
+Nice,43.7102,7.2620,O3,50.1,2024
+Nantes,47.2184,-1.5536,O3,45.0,2024
+
