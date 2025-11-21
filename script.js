@@ -6,10 +6,10 @@ function updateFooterYear() {
     // Récupère l'année en cours
     const currentYear = new Date().getFullYear();
     
-    // Récupère l'élément footer que nous avons dans index.html
+    // Récupèrer l'élément footer que nous avons dans index.html
     const footerElement = document.querySelector('footer p'); 
 
-    // Vérifie si l'élément existe avant de le modifier
+    // Vérifier si l'élément existe avant de le modifier
     if (footerElement) {
         // Change le texte pour mettre à jour l'année
         footerElement.innerHTML = `&copy; ${currentYear} AirQualitéFrance - Collaboration active.`;
