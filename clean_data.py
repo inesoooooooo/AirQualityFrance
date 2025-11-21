@@ -24,9 +24,14 @@ class AirQualityDataset:
                 df = df.dropna(subset=['valeur', 'Latitude', 'Longitude'])
                 
                 df['Année'] = pd.to_datetime(df['Date de début'], errors='coerce').dt.year
-                
+                df = df.drop(columns=['Date de début'])
                 df = df.dropna(subset=['Année'])
                 
-                clean_path = os.path.join(self.clean_folder, filename)
+                clean_filename = filename.replace(".csv", "_clean.csv")
+                clean_path = os.path.join(self.clean_folder, clean_filename)
+
                 df.to_csv(clean_path, index=False)
-                print(f"{filename} nettoyé et enregistré dans clean/")
+                print(f"{clean_filename} enregistré dans clean/")
+if __name__ == "__main__":
+    dataset = AirQualityDataset()
+    dataset.clean_all_csv()
