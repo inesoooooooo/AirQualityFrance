@@ -21,13 +21,6 @@ def get_air_quality_index(row):
 
     # Définition des seuils (en µg/m³) pour les 4 catégories (Bon, Moyen, Dégradé, Mauvais)
     seuils = {
-        # PM2.5 - Particules fines
-        "PM2.5": {
-            "BON": 10,
-            "MOYEN": 25,
-            "DÉGRADÉ": 50,
-            "MAUVAIS": np.inf  
-        },
         # NO2 - Dioxyde d'azote 
         "NO2": {
             "BON": 40,
@@ -35,13 +28,7 @@ def get_air_quality_index(row):
             "DÉGRADÉ": 180,
             "MAUVAIS": np.inf
         },
-        # O3 - Ozone
-        "O3": {
-            "BON": 80,
-            "MOYEN": 120,
-            "DÉGRADÉ": 180,
-            "MAUVAIS": np.inf
-        },
+        
         # PM10 - Particules
         "PM10": {
             "BON": 20,
@@ -49,7 +36,6 @@ def get_air_quality_index(row):
             "DÉGRADÉ": 70,
             "MAUVAIS": np.inf
         }
-        # Ajoutez d'autres polluants si nécessaire
     }
 
     if polluant not in seuils:
@@ -110,7 +96,7 @@ try:
     df = load_clean_data()
 except ValueError as e:
     print(e)
-    # Créer un DataFrame vide pour ne pas bloquer l'application
+    # Créer un DataFrame vide pour ne pas bloquer le site
     df = pd.DataFrame(columns=["polluant", "année", "latitude", "longitude", "valeur", "nom_site", "zas", "indice_qualite_air"])
 
 # -----------------------------------------------------------
