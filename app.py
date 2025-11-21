@@ -214,7 +214,7 @@ def update_map(annee, polluant):
             }
         }
 
-    fig = px.scatter_mapbox(
+    fig = px.scatter_map(
         dff,
         lat="latitude",
         lon="longitude",
