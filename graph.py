@@ -88,4 +88,4 @@ print("\n3. Affichage du graphique interactif. Une fenêtre de navigateur devrai
 fig.show()
 
 fig.write_html("graphique_polluants_par_ville.html") 
-print("Graphique interactif sauvegardé sous graphique_polluants_par_ville.html")
+print("Graphique interactif sauvegardé sous graphiqe.html")
