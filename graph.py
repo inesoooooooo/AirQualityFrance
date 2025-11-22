@@ -86,3 +86,6 @@ fig.update_layout(
 # Afficher le graphique interactif dans le navigateur
 print("\n3. Affichage du graphique interactif. Une fenêtre de navigateur devrait s'ouvrir.")
 fig.show()
+
+fig.write_html("graphique_polluants_par_ville.html") 
+print("Graphique interactif sauvegardé sous graphique_polluants_par_ville.html")
