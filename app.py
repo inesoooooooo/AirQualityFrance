@@ -238,10 +238,36 @@ def update_map(annee, polluant):
     )
 
     return fig
-    
-fig.show()
-fig.write_html("carte_interactive.html") 
-print("Carte interactive sauvegardée sous carte_interactive.html")
+#générer le fichier html
+if not df.empty:
+    for annee in annees_disponibles:
+        for polluant in polluants_disponibles:
+            dff = df[(df["année"] == annee) & (df["polluant"] == polluant)]
+            if not dff.empty:
+                fig = px.scatter_map(
+                    dff,
+                    lat="latitude",
+                    lon="longitude",
+                    color="indice_qualite_air",
+                    size="valeur",
+                    hover_name="nom_site",
+                    hover_data={"valeur": True, "zas": True, "latitude": False, "longitude": False},
+                    color_discrete_map=COULEURS_QUALITE,
+                    category_orders={"indice_qualite_air": ORDRE_QUALITE},
+                    size_max=30,
+                    zoom=5,
+                    height=700,
+                    title=f"Indice de la qualité de l'air pour {polluant} en {annee}"
+                )
+                fig.update_layout(
+                    mapbox_style="open-street-map",
+                    mapbox_center={"lat": 46.603354, "lon": 1.888334},
+                    margin={"l": 0, "r": 0, "t": 50, "b": 0}
+                )
+
+                nom_fichier = f"carte_{polluant}_{annee}.html".replace(" ", "_").replace("₁", "1").replace("₂","2")
+                fig.write_html(nom_fichier)
+                print(f"Carte interactive sauvegardée sous {nom_fichier}")
 
 # -----------------------------------------------------------
 # 🔶 5. Lancement
