@@ -20,7 +20,24 @@
             <p>Ici, nous allons afficher les indicateurs clés de la qualité de l'air en France.</p>
         </section>
 
-        <section id="carte-donnees">
+        <section id="cartes-interactives">
+            <h2>Carte interactive de la qualité de l'air en France métropolitaine</h2>
+
+            <label for="choix-carte">Choisir une carte :</label>
+            <select id="choix carte">
+                <option value="carte_PM10_2020.html">PM10 2020</option>
+                <option value="carte_PM10_2021.html">PM10 2021</option>
+                <option value="carte_PM10_2022.html">PM10 2022</option>
+                <option value="carte_PM10_2023.html">PM10 2023</option>
+                <option value="carte_PM10_2024.html">PM10 2024</option>
+                <option value="carte_N02_2020.html">N02 2020</option>
+                <option value="carte_N02_2021.html">PM10 2021</option>
+                <option value="carte_N02_2022.html">PM10 2022</option>
+                <option value="carte_N02_2023.html">PM10 2023</option>
+                <option value="carte_N02_2024.html">PM10 2024</option>
+            </select>
+            <iframe id="iframe-carte" src="carte_PM10_2020.html" width="100%" height="800px" style="border:none;" title="Carte interactive de la qualité de l'air"></iframe>
+        </section>
             <div class="visualisation">
                 <p>Zone de visualisation des données (carte ou graphique).</p>
             </div>
@@ -46,6 +63,16 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <script>
+        const selectCarte = document.getElementById("choix-carte");
+        const iframeCarte = document.getElementById("iframe-carte");
+
+        selectCarte.addEventListener("change", function() {
+            iframeCarte.src = this.value;
+        });
+    </script>
+
 
 </body>
 </html>
