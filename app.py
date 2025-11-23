@@ -236,6 +236,8 @@ def update_map(annee, polluant):
         mapbox_center={"lat": 46.603354, "lon": 1.888334},
         margin={"l": 0, "r": 0, "t": 50, "b": 0}
     )
+    #ajout pour generer le fichier html
+    fig.write_html("carte_interactive.html")
 
     return fig
 
