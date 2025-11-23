@@ -236,8 +236,11 @@ def update_map(annee, polluant):
         mapbox_center={"lat": 46.603354, "lon": 1.888334},
         margin={"l": 0, "r": 0, "t": 50, "b": 0}
     )
-
     return fig
+    
+print("df vide ?", df.empty)
+print("annees_disponibles :", annees_disponibles)
+print("polluants_disponibles :", polluants_disponibles)
 #générer le fichier html
 if not df.empty:
     for annee in annees_disponibles:
@@ -259,12 +262,6 @@ if not df.empty:
                     height=700,
                     title=f"Indice de la qualité de l'air pour {polluant} en {annee}"
                 )
-                fig.update_layout(
-                    mapbox_style="open-street-map",
-                    mapbox_center={"lat": 46.603354, "lon": 1.888334},
-                    margin={"l": 0, "r": 0, "t": 50, "b": 0}
-                )
-
                 nom_fichier = f"carte_{polluant}_{annee}.html".replace(" ", "_").replace("₁", "1").replace("₂","2")
                 fig.write_html(nom_fichier)
                 print(f"Carte interactive sauvegardée sous {nom_fichier}")
@@ -274,4 +271,4 @@ if not df.empty:
 # -----------------------------------------------------------
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
