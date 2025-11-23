@@ -98,40 +98,9 @@ except ValueError as e:
     print(e)
     # Créer un DataFrame vide pour ne pas bloquer le site
     df = pd.DataFrame(columns=["polluant", "année", "latitude", "longitude", "valeur", "nom_site", "zas", "indice_qualite_air"])
+
 # -----------------------------------------------------------
-# 🔶 2. Génération de la carte html
-# -----------------------------------------------------------
-
-if not df.empty:
-    polluant_defaut = df["polluant"].unique()[0]
-    annee_defaut = sorted(df["année"].unique())[-1]
-
-    dff = df[(df["année"] == annee_defaut) & (df["polluant"] == polluant_defaut)]
-
-    fig = px.scatter_map(
-        dff,
-        lat="latitude",
-        lon="longitude",
-        color="indice_qualite_air",
-        size="valeur",
-        hover_name="nom_site",
-        hover_data={"valeur": True, "zas": True, "latitude": False, "longitude": False},
-        color_discrete_map={"BON":"green","MOYEN":"yellow","DÉGRADÉ":"orange","MAUVAIS":"red"},
-        category_orders={"indice_qualite_air": ["BON", "MOYEN", "DÉGRADÉ", "MAUVAIS"]},
-        size_max=30,
-        zoom=5,
-        height=700,
-        title=f"Indice de la qualité de l'air pour {polluant_defaut} en {annee_defaut}"
-    )
-    fig.update_layout(
-        mapbox_style="open-street-map",
-        mapbox_center={"lat": 46.603354, "lon": 1.888334},
-        margin={"l": 0, "r": 0, "t": 50, "b": 0}
-    )
-
-    fig.write_html("carte_interactive.html")
-# -----------------------------------------------------------
-# 🔶 3. Récupération des valeurs pour les dropdowns et couleurs
+# 🔶 2. Récupération des valeurs pour les dropdowns et couleurs
 # -----------------------------------------------------------
 
 Polluant_ = {
@@ -155,7 +124,7 @@ COULEURS_QUALITE = {
 }
 
 # -----------------------------------------------------------
-# 🔶 4. Application Dash et Layout
+# 🔶 3. Application Dash et Layout
 # -----------------------------------------------------------
 
 app = dash.Dash(__name__)
@@ -221,7 +190,7 @@ app.layout = html.Div([
 
 
 # -----------------------------------------------------------
-# 🔶 5- Callback pour mettre à jour la carte
+# 🔶 4. Callback pour mettre à jour la carte
 # -----------------------------------------------------------
 
 @app.callback(
@@ -269,10 +238,11 @@ def update_map(annee, polluant):
     )
 
     return fig
-
+fig.write_html("carte_interactive.html") 
+print("Carte interactive sauvegardée sous carte_interactive.html")
 
 # -----------------------------------------------------------
-# 🔶 6. Lancement
+# 🔶 5. Lancement
 # -----------------------------------------------------------
 
 if __name__ == "__main__":
