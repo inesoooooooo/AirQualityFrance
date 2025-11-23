@@ -238,6 +238,8 @@ def update_map(annee, polluant):
     )
 
     return fig
+    
+fig.show()
 fig.write_html("carte_interactive.html") 
 print("Carte interactive sauvegardée sous carte_interactive.html")
 
