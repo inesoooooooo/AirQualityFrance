@@ -7,8 +7,8 @@ import glob
 import numpy as np
 
 # -----------------------------------------------------------
-# 🛠️ Fonction de classification Indice ATMO (Simplifiée aux 4 niveaux)
-# Ces seuils sont basés sur l'indice ATMO Français (simplifié) pour les polluants les plus courants.
+# Fonction de classification Indice ATMO officiel Français en 4 niveaux
+# Ces seuils sont basés sur l'indice ATMO Français pour les polluants NO2 ET PM10.
 # -----------------------------------------------------------
 
 def get_air_quality_index(row):
@@ -91,7 +91,7 @@ def load_clean_data(folder="data/clean/"):
 
     return df
 
-# ⚠️ Gérer l'exception si le chargement échoue
+# Gérer l'exception si le chargement échoue
 try:
     df = load_clean_data()
 except ValueError as e:
@@ -103,6 +103,10 @@ except ValueError as e:
 # 🔶 2. Récupération des valeurs pour les dropdowns et couleurs
 # -----------------------------------------------------------
 
+Polluant_ = {
+    "PM10":"PM\u2081\u2080"
+    "NO2":"NO\u2082"
+}
 if not df.empty:
     polluants_disponibles = sorted(df["polluant"].unique())
     annees_disponibles = sorted(df["année"].unique())
@@ -117,7 +121,6 @@ COULEURS_QUALITE = {
     "MOYEN": "yellow",
     "DÉGRADÉ": "orange",
     "MAUVAIS": "red",
-    "NON CLASSIFIÉ": "gray"
 }
 
 # -----------------------------------------------------------
@@ -128,13 +131,13 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div([
 
-    html.H1("Carte interactive de la qualité de l'air en France", 
+    html.H1("Carte interactive de la qualité de l'air en France métropolitaine", 
             style={"textAlign": "center", "marginBottom": "20px"}),
 
     html.Div([
         # Slider pour l'année (comme sur le croquis)
         html.Div([
-            html.Label("Choisir une année :", style={'marginBottom': '10px'}),
+            html.Label("Choix de l'année :", style={'marginBottom': '10px'}),
             dcc.Slider(
                 id="annee",
                 min=annees_disponibles[0] if annees_disponibles else 2020,
@@ -148,7 +151,7 @@ app.layout = html.Div([
 
         # Dropdown pour le polluant
         html.Div([
-            html.Label("Choisir un polluant :"),
+            html.Label("Choisissez un polluant :"),
             dcc.Dropdown(
                 id="polluant",
                 options=[{"label": p, "value": p} for p in polluants_disponibles],
@@ -162,7 +165,8 @@ app.layout = html.Div([
 
     # Légende statique Indice Qualité Air (pour ressembler au croquis)
     html.Div([
-        html.H3("Indice Qualité Air", style={"textAlign": "center", "marginTop": "20px"}),
+        html.H3("Qualité de l'air (Indice ATMO simplifié)", style={"textAlign": "center", "marginTop": "20px"}),
+        #Niveaux de qualité de l'air
         html.Ul(
             [
                 html.Li([html.Span("●", style={"color": COULEURS_QUALITE["BON"], "fontSize": "20px", "marginRight": "10px"}), "BON"], style={"listStyle": "none"}),
@@ -171,6 +175,14 @@ app.layout = html.Div([
                 html.Li([html.Span("●", style={"color": COULEURS_QUALITE["MAUVAIS"], "fontSize": "20px", "marginRight": "10px"}), "MAUVAIS"], style={"listStyle": "none"}),
             ], 
             style={"textAlign": "center", "padding": "0"}
+        ),
+        #Polluants (pour bien les afficher)
+        html.H4("Polluants", style={"textAlign": "center", "marginTop": "10px"}),
+        html.Ul(
+            [
+                html.Li("NO₂", style={"textAlign": "center", "listStyle": "none"}),
+                html.Li("PM₁₀", style={"textAlign": "center", "listStyle": "none"})
+            ]
         )
     ]),
 
@@ -178,7 +190,7 @@ app.layout = html.Div([
 
 
 # -----------------------------------------------------------
-# 🔶 4. Callback pour mettre à jour la carte
+# 🔶 4- Callback pour mettre à jour la carte
 # -----------------------------------------------------------
 
 @app.callback(
@@ -192,7 +204,7 @@ def update_map(annee, polluant):
     
     dff = df[(df["année"] == annee) & (df["polluant"] == polluant)]
     
-    if dff.empty:
+    if dff.empty: #pour pas que le graphique plante si on a pas de donnée pour un polluant sur une année
         return {
             'layout': {
                 'title': f"Aucune donnée pour {polluant} en {annee}",
@@ -208,7 +220,7 @@ def update_map(annee, polluant):
         color="indice_qualite_air", 
         size="valeur",
         hover_name="nom_site",
-        hover_data={"année": True, "valeur": True, "zas": True},
+        hover_data={"valeur": True, "zas": True, "latitude": False, "longitude": False},
         # Force les couleurs Vert/Jaune/Orange/Rouge
         color_discrete_map=COULEURS_QUALITE, 
         # Force l'ordre de la légende
@@ -216,7 +228,7 @@ def update_map(annee, polluant):
         size_max=30,
         zoom=5,
         height=700,
-        title=f"Indice Qualité Air pour le polluant {polluant} en {annee}"
+        title=f"Indice de la qualité de l'air pour le polluant {polluant} en {annee} en France métropolitaine"
     )
 
     fig.update_layout(
