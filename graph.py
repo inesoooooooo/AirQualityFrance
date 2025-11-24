@@ -9,13 +9,16 @@ DATA_FOLDER = 'data/clean'
 
 # Correspondance entre le code ZAG dans les données et le nom de la ville
 MAP_VILLES = {
+    'ZAG PARIS': 'Paris',
+    'ZAG NANTES': 'Nantes',
+    'ZAG MONTPELLIER': 'Montpellier',
     'ZAG LYON': 'Lyon',
     'ZAG BORDEAUX': 'Bordeaux',
     'ZAG TOULOUSE': 'Toulouse',
     'ZAG MARSEILLE-AIX': 'Marseille-Aix',
     'ZAG NICE': 'Nice',
     'ZAG STRASBOURG': 'Strasbourg',
-    'ZAG RENNES': 'Rennes'
+    'ZAG LILLE': 'Lille'
 }
 
 # --- 2. COMBINAISON ET PRÉPARATION DES DONNÉES ---
