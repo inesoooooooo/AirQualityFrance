@@ -269,6 +269,21 @@ if not df.empty:
 # -----------------------------------------------------------
 # 🔶 5. Génération des cartes par villes
 # -----------------------------------------------------------
+
+def nettoyer_nom_ville(ville):
+    # on nettoie le nom des villes pour générer des noms de fichiers valides et qui vont pas faire beuguer le code
+    return (
+        str(ville)
+        .strip()
+        .replace(" ", "_")
+        .replace("-", "_")
+        .replace("/", "_")
+        .replace("\\", "_")
+    )
+
+import os
+os.makedirs("cartes_villes", exist_ok=True)
+
 villes_disponibles = df["zas"].unique()
 for ville in villes_disponibles:
     dff = df[df['zas'] == ville]
@@ -288,7 +303,7 @@ for ville in villes_disponibles:
             height=600,
             title=f"Qualité de l'air à {ville}"
         )
-        fig.write_html(f"cartes_villes/carte_{ville}.html", include_plotlyjs='inline')
+        fig.write_html(f"cartes_villes/carte_{nettoyer_nom_ville(ville)}.html", include_plotlyjs='inline')
 
 
 # -----------------------------------------------------------
