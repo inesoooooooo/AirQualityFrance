@@ -265,9 +265,34 @@ if not df.empty:
                 nom_fichier = f"carte_{polluant}_{annee}.html".replace(" ", "_").replace("₁", "1").replace("₂","2")
                 fig.write_html(nom_fichier)
                 print(f"Carte interactive sauvegardée sous {nom_fichier}",include_plotlyjs='inline')
+                
+# -----------------------------------------------------------
+# 🔶 5. Génération des cartes par villes
+# -----------------------------------------------------------
+villes_disponibles = df["zas"].unique()
+for ville in villes_disponibles:
+    dff = df[df['zas'] == ville]
+    if not dff.empty:
+        fig = px.scatter_map(
+            dff,
+            lat="latitude",
+            lon="longitude",
+            color="indice_qualite_air",
+            size="valeur",
+            hover_name="zas",
+            hover_data={"valeur": True, "zas": True, "latitude": False, "longitude": False},
+            color_discrete_map=COULEURS_QUALITE,
+            category_orders={"indice_qualite_air": ORDRE_QUALITE},
+            size_max=30,
+            zoom=10,
+            height=600,
+            title=f"Qualité de l'air à {ville}"
+        )
+        fig.write_html(f"cartes_villes/carte_{ville}.html", include_plotlyjs='inline')
+
 
 # -----------------------------------------------------------
-# 🔶 5. Lancement
+# 🔶 6. Lancement
 # -----------------------------------------------------------
 
 if __name__ == "__main__":
