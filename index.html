@@ -20,7 +20,7 @@
             <p>Ici, nous allons afficher les indicateurs clés de la qualité de l'air en France.</p>
         </section>
 
-        <section id="cartes-interactives">
+        <section id="cartes-polluant">
             <h2 id="titre-carte">Carte interactive de la qualité de l'air en France métropolitaine</h2>
 
             <label for="choix-carte">Choisir une carte :</label>
@@ -36,7 +36,12 @@
                 <option value="carte_interactive.html/carte_NO2_2023.html">NO2 2023</option>
                 <option value="carte_interactive.html/carte_NO2_2024.html">NO2 2024</option>
             </select>
+            <iframe id="iframe-carte" 
+                src="carte_interactive.html/carte_PM10_2020.html" width="100%" height="800px" style="border:none;" title="Carte interactive de la qualité de l'air"></iframe>
+        </section>
 
+        <section id="carte-ville">
+            <h2 id="titre-ville">Carte interactive de la qualité de l'air à Paris</h2>
             <label for="choix-ville">Choisir une ville :</label>
             <select id="choix-ville">
                 <option value="cartes_villes/carte_ZAG PARIS.html">Paris</option>
@@ -55,8 +60,6 @@
                 title="Carte interactive de la qualité de l'air">
             </iframe>
 
-            <iframe id="iframe-carte" 
-                src="carte_interactive.html/carte_PM10_2020.html" width="100%" height="800px" style="border:none;" title="Carte interactive de la qualité de l'air"></iframe>
         </section>
             <div class="visualisation">
                 <p>Zone de visualisation des données (carte ou graphique).</p>
@@ -88,13 +91,20 @@
     const selectCarte = document.getElementById("choix-carte");
     const iframeCarte = document.getElementById("iframe-carte");
     const titreCarte = document.getElementById("titre-carte");
-    const selectVille = document.getElementById("choix-ville");
-    const iframeVille = document.getElementById("iframe-ville");
     
     selectCarte.addEventListener("change", function() {
         iframeCarte.src = this.value;
         titreCarte.textContent = "Carte interactive : " + this.options[this.selectedIndex].text;
     });
+
+    const selectVille = document.getElementById("choix-ville");
+    const iframeVille = document.getElementById("iframe-ville");
+    const titreVille = document.getElementById("titre-ville");
+
+    selectVille.addEventListener("change", function() {
+    iframeCarteVille.src = this.value;
+    titreCarteVille.textContent = "Carte interactive : " + this.options[this.selectedIndex].text;
+});
     </script>
 
 
