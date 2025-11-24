@@ -97,11 +97,11 @@
         titreCarte.textContent = "Carte interactive : " + this.options[this.selectedIndex].text;
     });
 
-    const selectVille = document.getElementById("choix-ville");
-    const iframeVille = document.getElementById("iframe-ville");
-    const titreVille = document.getElementById("titre-ville");
+    const selectCarteVille = document.getElementById("choix-ville");
+    const iframeCarteVille = document.getElementById("iframe-ville");
+    const titreCarteVille = document.getElementById("titre-ville");
 
-    selectVille.addEventListener("change", function() {
+    selectCarteVille.addEventListener("change", function() {
     iframeCarteVille.src = this.value;
     titreCarteVille.textContent = "Carte interactive : " + this.options[this.selectedIndex].text;
 });
