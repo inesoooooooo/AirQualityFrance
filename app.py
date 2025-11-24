@@ -264,7 +264,7 @@ if not df.empty:
                 )
                 nom_fichier = f"carte_{polluant}_{annee}.html".replace(" ", "_").replace("₁", "1").replace("₂","2")
                 fig.write_html(nom_fichier)
-                print(f"Carte interactive sauvegardée sous {nom_fichier}")
+                print(f"Carte interactive sauvegardée sous {nom_fichier}",include_plotlyjs='inline')
 
 # -----------------------------------------------------------
 # 🔶 5. Lancement
