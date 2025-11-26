@@ -200,16 +200,16 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const data = {
-                Paris: ["PM10", "NO2"],
-                Bordeaux: ["PM10", "NO2"],
-                Lille: ["PM10", "NO2"],
-                Lyon: ["PM10", "NO2"],
+                PARIS: ["PM10", "NO2"],
+                BORDEAUX: ["PM10", "NO2"],
+                LILLE: ["PM10", "NO2"],
+                LYON: ["PM10", "NO2"],
                 MARSEILLE_AIX: ["PM10", "NO2"],
-                Montpellier: ["PM10", "NO2"],
-                Nantes_Saint_Nazaire: ["PM10", "NO2"],
-                Nice: ["PM10", "NO2"],
-                Strasbourg: ["PM10", "NO2"],
-                Toulouse: ["PM10", "NO2"]
+                MONTPELLIER: ["PM10", "NO2"],
+                NANTES_SAINT_NAZAIRE: ["PM10", "NO2"],
+                NICE: ["PM10", "NO2"],
+                STRASBOURG: ["PM10", "NO2"],
+                TOULOUSE: ["PM10", "NO2"]
              };
              const annees = [2020, 2021, 2022, 2023, 2024];
              const villeSelect = document.getElementById("ville-select");
@@ -252,7 +252,7 @@
                   if (ville && polluant) {
                       annees.forEach(annee => {
                           const option = document.createElement("option");
-                          option.value = `cartes_villes/carte_ZAG_${ville.toUpperCase()}_${polluant}_${annee}.html`;
+                          option.value = `cartes_villes/carte_ZAG_${ville}_${polluant}_${annee}.html`;
                           option.textContent = annee;
                           anneeSelect.appendChild(option);
                        });
