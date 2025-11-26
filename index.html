@@ -3,116 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Air Qualité France - Surveillance</title>
+    <title>Air Qualité France | Analyse de l'Air Métropolitain (2020-2024)</title>
     
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <h1>Projet Air Qualité France</h1>
-        <p>Surveillance et visualisation des données de pollution.</p>
+        <div class="container">
+            <h1>Projet Air Qualité France 🇫🇷</h1>
+            <p>Surveillance et modélisation des polluants atmosphériques.</p>
+            <nav>
+                <a href="#introduction">Présentation</a>
+                <a href="#definitions">Polluants Clés</a>
+                <a href="#cartes-polluant">Cartes Nationales</a>
+                <a href="#graphique-integre">Tendances Annuelles</a>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <section id="introduction">
+    <main class="container">
+        <section id="introduction" class="content-section">
             <h2>Bienvenue sur notre tableau de bord</h2>
-            <p>Bienvenue sur notre site dédié à la qualité de l’air en France !<br>
-        Ici, nous suivons deux polluants clés : <strong>PM10</strong> (particules fines nocives pour les poumons et le cœur) et <strong>NO₂</strong> (dioxyde d’azote, un gaz dangereux pour la respiration).<br>
-        Nous présentons les données grâce à <strong>l’indice ATMO</strong>, et nous nous concentrons sur les <strong>10 villes les plus peuplées</strong>. Vous pourrez comparer la qualité de l’air actuelle et découvrir nos <strong>prévisions pour les cinq prochaines années</strong>, basées sur une modélisation statistique.<br>
-        Ces informations vous aideront à <strong>choisir une ville où respirer un air plus sain</strong>.
-        </section>
-
-        <section id="cartes-polluant">
-            <h2 id="titre-carte">Carte interactive de la qualité de l'air en France métropolitaine</h2>
-
-            <label for="choix-carte">Choisir une carte :</label>
-            <select id="choix-carte">
-                <option value="carte_interactive.html/carte_PM10_2020.html">PM10 2020</option>
-                <option value="carte_interactive.html/carte_PM10_2021.html">PM10 2021</option>
-                <option value="carte_interactive.html/carte_PM10_2022.html">PM10 2022</option>
-                <option value="carte_interactive.html/carte_PM10_2023.html">PM10 2023</option>
-                <option value="carte_interactive.html/carte_PM10_2024.html">PM10 2024</option>
-                <option value="carte_interactive.html/carte_NO2_2020.html">NO2 2020</option>
-                <option value="carte_interactive.html/carte_NO2_2021.html">NO2 2021</option>
-                <option value="carte_interactive.html/carte_NO2_2022.html">NO2 2022</option>
-                <option value="carte_interactive.html/carte_NO2_2023.html">NO2 2023</option>
-                <option value="carte_interactive.html/carte_NO2_2024.html">NO2 2024</option>
-            </select>
-            <iframe id="iframe-carte" 
-                src="carte_interactive.html/carte_PM10_2020.html" width="100%" height="800px" style="border:none;" title="Carte interactive de la qualité de l'air"></iframe>
-        </section>
-
-        <section id="carte-ville">
-            <h2 id="titre-ville">Carte interactive de la qualité de l'air à Paris</h2>
-            <label for="choix-ville">Choisir une ville :</label>
-            <select id="choix-ville">
-                <option value="cartes_villes/carte_ZAG_PARIS.html">Paris</option>
-                <option value="cartes_villes/carte_ZAG_LYON.html">Lyon</option>
-                <option value="cartes_villes/carte_ZAG_BORDEAUX.html">Bordeaux</option>
-                <option value="cartes_villes/carte_ZAG_TOULOUSE.html">Toulouse</option>
-                <option value="cartes_villes/carte_ZAG_NICE.html">Nice</option>
-                <option value="cartes_villes/carte_ZAG_NANTES-SAINT-NAZAIRE.html">Nantes</option>
-                <option value="cartes_villes/carte_ZAG_STRASBOURG.html">Strasbourg</option>
-                <option value="cartes_villes/carte_ZAG_MARSEILLE-AIX.html">Marseille-Aix</option>
-                <option value="cartes_villes/carte_ZAG_LILLE.html">Lille</option>
-                <option value="cartes_villes/carte_ZAG_MONTPELLIER.html">Montpellier</option>
-            </select>
-            <iframe id="iframe-ville" 
-                src="cartes_villes/carte_ZAG_
-PARIS.html" 
-                width="100%" height="800px" 
-                style="border:none;" 
-                title="Carte interactive de la qualité de l'air">
-            </iframe>
-
-        </section>
-            <div class="visualisation">
-                <p>Zone de visualisation des données (carte ou graphique).</p>
+            <p class="summary">
+                Notre mission est de vous offrir une vision claire de l'évolution de la qualité de l'air dans les métropoles françaises entre **2020 et 2024**. Nous nous concentrons sur les <strong>10 villes les plus peuplées</strong> et analysons deux polluants majeurs.
+            </p>
+            <div class="intro-details">
+                <p>Grâce à notre analyse statistique et à l'utilisation de l'indice ATMO, nous modélisons les tendances et offrons des **prévisions pour les cinq prochaines années**. Utilisez cet outil pour comparer les villes et comprendre les enjeux liés à la santé respiratoire.</p>
             </div>
         </section>
-    </main>
-    <nav>
-    <a href="graphique.html">Voir le Graphique des Polluants</a>
-</nav>
-<section id="graphique-integre">
-    <h2>Visualisation des Polluants</h2>
-    
-    <iframe 
-        src="graphique.html" 
-        width="100%" 
-        height="700px" 
-        style="border: none;"
-        title="Graphique interactif des polluants">
-    </iframe>
-</section>
+
+        <section id="definitions" class="content-section">
+            <h2>Comprendre les Polluants Clés</h2>
+            <div class="polluant-grid">
+                <div class="polluant-card">
+                    <h3>PM10 (Particules Fines)</h3>
+                    <p>Ces particules sont dangereuses car elles peuvent pénétrer profondément dans les poumons. Elles proviennent principalement de la combustion (trafic, chauffage) et des poussières naturelles. Leur suivi est essentiel pour la santé cardiovasculaire.</p>
+                </div>
+                <div class="polluant-card">
+                    <h3>NO₂ (Dioxyde d’Azote)</h3>
+                    <p>Un gaz irritant et un indicateur direct de la pollution liée au **trafic routier**, en particulier des moteurs diesel. Des concentrations élevées de $\text{NO}_2$ sont un facteur d'aggravation des maladies respiratoires.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="cartes-polluant" class="content-section map-section">
+            <h2>Vue Nationale : Concentrations de 2020 à 2024</h2>
+            <p>Explorez les cartes interactives pour visualiser la répartition des concentrations de $\text{PM10}$ ou de $\text{NO}_2$ à travers la France métropolitaine, année par année. Observez l'impact des politiques environnementales et des événements climatiques sur la qualité de l'air.</p>
+
+            <div class="select-wrapper">
+                <label for="choix-carte">Choisir Polluant et Année :</label>
+                <select id="choix-carte">
+                    <option value="carte_interactive.html/carte_PM10_2020.html">PM10 2020</option>
+                    <option value="carte_interactive.html/carte_PM10_2021.html">PM10 2021</option>
+                    <option value="carte_interactive.html/carte_PM10_2022.html">PM10 2022</option>
+                    <option value="carte_interactive.html/carte_PM10_2023.html">PM10 2023</option>
+                    <option value="carte_interactive.html/carte_PM10_2024.html">PM10 2024</option>
+                    <option value="carte_interactive.html/carte_NO2_2020.html">NO2 2020</option>
+                    <option value="carte_interactive.html/carte_NO2_2021.html">NO2 2021</option>
+                    <option value="carte_interactive.html/carte_NO2_2022.html">NO2 2022</option>
+                    <option value="carte_interactive.html/carte_NO2_2023.html">NO2 2023</option>
+                    <option value="carte_interactive.html/carte_NO2_2024.html">NO2 2024</option>
+                </select>
+            </div>
+            
+            <h2 id="titre-carte">Carte interactive : PM10 2020</h2>
+
+            <div class="iframe-wrapper">
+                <iframe id="iframe-carte" 
+                    src="carte_interactive.html/carte_PM10_2020.html" 
+                    width="100%" 
+                    height="800px" 
+                    style="border:none;" 
+                    title="Carte interactive de la qualité de l'air en France">
+                </iframe>
+            </div>
+        </section>
+
+        <section id="carte-ville" class="content-section map-section">
+            <h2>Analyse Locale Détaillée</h2>
+            <p>Zoom sur l'évolution de la pollution au niveau de chaque Zone d'Agrégation Géographique (ZAG). Sélectionnez une agglomération pour voir ses cartes spécifiques.</p>
+            
+            <div class="select-wrapper">
+                <label for="choix-ville">Choisir une ville :</label>
+                <select id="choix-ville">
+                    <option value="cartes_villes/carte_ZAG_PARIS.html">Paris</option>
+                    <option value="cartes_villes/carte_ZAG_LYON.html">Lyon</option>
+                    <option value="cartes_villes/carte_ZAG_BORDEAUX.html">Bordeaux</option>
+                    <option value="cartes_villes/carte_ZAG_TOULOUSE.html">Toulouse</option>
+                    <option value="cartes_villes/carte_ZAG_NICE.html">Nice</option>
+                    <option value="cartes_villes/carte_ZAG_NANTES-SAINT-NAZAIRE.html">Nantes</option>
+                    <option value="cartes_villes/carte_ZAG_STRASBOURG.html">Strasbourg</option>
+                    <option value="cartes_villes/carte_ZAG_MARSEILLE-AIX.html">Marseille-Aix</option>
+                    <option value="cartes_villes/carte_ZAG_LILLE.html">Lille</option>
+                    <option value="cartes_villes/carte_ZAG_MONTPELLIER.html">Montpellier</option>
+                </select>
+            </div>
+
+            <h2 id="titre-ville">Carte interactive : Paris</h2>
+
+            <div class="iframe-wrapper">
+                <iframe id="iframe-ville" 
+                    src="cartes_villes/carte_ZAG_PARIS.html" 
+                    width="100%" 
+                    height="800px" 
+                    style="border:none;" 
+                    title="Carte interactive de la qualité de l'air par ville">
+                </iframe>
+            </div>
+        </section>
+
+        <section id="graphique-integre" class="content-section graph-section">
+            <h2>Tendances Annuelles : Comparaison PM10 vs NO₂</h2>
+            <p>Ce graphique interactif vous permet de suivre l'évolution des concentrations moyennes annuelles (2020-2024) pour chaque ville. Utilisez le **sélecteur déroulant** dans le graphique pour choisir la ville à analyser et identifier les tendances clés.</p>
+            
+            <div class="iframe-wrapper">
+                <iframe 
+                    src="graphique.html" 
+                    width="100%" 
+                    height="700px" 
+                    style="border: none;"
+                    title="Graphique interactif des polluants">
+                </iframe>
+            </div>
+        </section>
+        
+        </main>
 
     <footer>
-        <p>&copy; 2025 AirQualitéFrance -</p>
+        <div class="container">
+            <p>&copy; 2025 AirQualitéFrance - Projet analytique et éducatif.</p>
+            <p>Source des données : AASQA/organismes officiels.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
 
     <script>
-    const selectCarte = document.getElementById("choix-carte");
-    const iframeCarte = document.getElementById("iframe-carte");
-    const titreCarte = document.getElementById("titre-carte");
-    
-    selectCarte.addEventListener("change", function() {
-        iframeCarte.src = this.value;
-        titreCarte.textContent = "Carte interactive : " + this.options[this.selectedIndex].text;
-    });
+        const selectCarte = document.getElementById("choix-carte");
+        const iframeCarte = document.getElementById("iframe-carte");
+        const titreCarte = document.getElementById("titre-carte");
+        
+        selectCarte.addEventListener("change", function() {
+            iframeCarte.src = this.value;
+            // Met à jour le titre H2 en fonction de la sélection
+            titreCarte.textContent = "Carte interactive : " + this.options[this.selectedIndex].text;
+        });
 
-    const selectCarteVille = document.getElementById("choix-ville");
-    const iframeCarteVille = document.getElementById("iframe-ville");
-    const titreCarteVille = document.getElementById("titre-ville");
+        const selectCarteVille = document.getElementById("choix-ville");
+        const iframeCarteVille = document.getElementById("iframe-ville");
+        const titreCarteVille = document.getElementById("titre-ville");
 
-    selectCarteVille.addEventListener("change", function() {
-    iframeCarteVille.src = this.value;
-    titreCarteVille.textContent = "Carte interactive : " + this.options[this.selectedIndex].text;
-});
+        selectCarteVille.addEventListener("change", function() {
+            iframeCarteVille.src = this.value;
+            // Met à jour le titre H2 en fonction de la sélection
+            titreCarteVille.textContent = "Carte interactive : " + this.options[this.selectedIndex].text;
+        });
     </script>
-
 
 </body>
 </html>

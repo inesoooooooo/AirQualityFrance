@@ -1,0 +1,183 @@
+/* --- VARIABLES ET RÉINITIALISATION --- */
+:root {
+    --color-primary: #007bff; /* Bleu vif pour l'accent */
+    --color-secondary: #004c8c; /* Bleu foncé pour les titres et le footer */
+    --color-background: #f8f9fa; /* Gris clair de fond */
+    --color-text: #343a40; /* Gris foncé pour le texte */
+    --color-light-bg: #ffffff; /* Fond des blocs de contenu */
+    --color-border: #e9ecef;
+    --font-family: 'Roboto', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* --- EN-TÊTE (HEADER) --- */
+header {
+    background-color: var(--color-light-bg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: var(--color-secondary);
+    margin-bottom: 5px;
+}
+
+header p {
+    color: var(--color-text);
+    margin-bottom: 15px;
+}
+
+nav {
+    border-top: 1px solid var(--color-border);
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--color-primary);
+    margin: 0 15px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--color-secondary);
+}
+
+/* --- SECTIONS DE CONTENU --- */
+.content-section {
+    background-color: var(--color-light-bg);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    margin: 30px 0;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: var(--color-secondary);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--color-primary);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* --- INTRODUCTION --- */
+#introduction .summary {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #0056b3; /* Une couleur qui accroche l'œil */
+}
+
+/* --- DÉFINITIONS --- */
+.polluant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.polluant-card {
+    padding: 20px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background-color: #f0f8ff; /* Bleu très clair */
+}
+
+.polluant-card h3 {
+    color: var(--color-primary);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+/* --- SÉLECTEURS ET IFRAMES (Maps & Graph) --- */
+.map-section, .graph-section {
+    text-align: center;
+}
+
+.select-wrapper {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #e9f5ff; /* Léger fond pour le sélecteur */
+    border-radius: 4px;
+}
+
+label {
+    font-weight: 700;
+    margin-right: 10px;
+    color: var(--color-secondary);
+}
+
+select {
+    padding: 8px 15px;
+    border: 1px solid var(--color-primary);
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.iframe-wrapper {
+    margin-top: 25px;
+    /* Ajoutez une petite bordure pour encadrer clairement les iframes */
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    overflow: hidden; /* Empêche les barres de défilement indésirables */
+}
+
+/* --- PIED DE PAGE (FOOTER) --- */
+footer {
+    background-color: var(--color-secondary);
+    color: var(--color-light-bg);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+    margin-top: 30px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* --- RESPONSIVITÉ --- */
+@media (max-width: 768px) {
+    header .container {
+        padding: 0 10px;
+    }
+    nav {
+        display: flex;
+        flex-direction: column;
+    }
+    nav a {
+        margin: 5px 0;
+        padding: 5px 0;
+        border-bottom: 1px dashed var(--color-border);
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    .polluant-grid {
+        grid-template-columns: 1fr;
+    }
+}
