@@ -6,7 +6,7 @@ import glob
 from collections import OrderedDict
 
 # --- 1. CONFIGURATION ---
-DATA_FOLDER = '../data/clean'
+DATA_FOLDER = 'data/clean'
 
 # Correspondance entre le code ZAG dans les données et le nom de la ville
 MAP_VILLES = {
@@ -141,7 +141,6 @@ fig.update_layout(
     height=600
 )
 
- HEAD
 # --- 4. EXPORTATION ---
 fig.write_html("graphique.html") 
 print("\n3. Graphique interactif avec sélecteur sauvegardé sous graphique.html")
