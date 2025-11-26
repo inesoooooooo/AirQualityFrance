@@ -133,42 +133,11 @@
                     <option value="cartes_villes/carte_ZAG_MONTPELLIER.html">Montpellier</option>
                 </select>
 
-                <label for="polluant-select">Choisissez un polluant :</label>
-                <select id="polluant-select">
-                    <option value="NO2">NO₂</option>
-                    <option value="PM10">PM₁₀</option>
-                </select>
-                <label for="annee-select">Choisissez une année :</label>
-                <select id="annee-select">
-                    <option value="2020">2020</option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
-                    <option value="2023">2023</option>
-                    <option value="2024">2024</option>
-                </select>
-
             </div>
 
             <div class="iframe-wrapper iframe-shadow">
-                <iframe id="ville-frame" src="cartes_villes/carte_ZAG_PARIS_NO2_2020.html" title="Carte locale"></iframe>
+                <iframe id="ville-frame" src="cartes_villes/carte_ZAG_PARIS.html" title="Carte locale"></iframe>
             </div>
-            <script>
-            const villeSelect = document.getElementById('ville-select');
-            const polluantSelect = document.getElementById('polluant-select');
-            const anneeSelect = document.getElementById('annee-select');
-            const iframe = document.getElementById('ville-frame');
-
-            function updateIframe() {
-                const ville = villeSelect.value;
-                const polluant = polluantSelect.value;
-                const annee = anneeSelect.value;
-                const fichier = `cartes_villes/carte_${ville}_${polluant}_${annee}.html`;
-                iframe.src = fichier;
-            }
-            villeSelect.addEventListener('change', updateIframe);
-            polluantSelect.addEventListener('change', updateIframe);
-            anneeSelect.addEventListener('change', updateIframe);
-            </script>
         </section>
 
         <!-- TENDANCES -->
