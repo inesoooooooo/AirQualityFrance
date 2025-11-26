@@ -141,7 +141,7 @@ fig.update_layout(
     height=600
 )
 
-# --- 4. EXPORTATION ---
+# 4. EXPORTATION 
 fig.write_html("graphique.html") 
 print("\n3. Graphique interactif avec sélecteur sauvegardé sous graphique.html")
 
