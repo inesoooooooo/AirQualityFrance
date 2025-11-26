@@ -200,16 +200,16 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const data = {
-                PARIS: ["PM10", "NO2"],
-                BORDEAUX: ["PM10", "NO2"],
-                LILLE: ["PM10", "NO2"],
-                LYON: ["PM10", "NO2"],
-                MARSEILLE_AIX: ["PM10", "NO2"],
-                MONTPELLIER: ["PM10", "NO2"],
-                NANTES_SAINT_NAZAIRE: ["PM10", "NO2"],
-                NICE: ["PM10", "NO2"],
-                STRASBOURG: ["PM10", "NO2"],
-                TOULOUSE: ["PM10", "NO2"]
+                "PARIS": ["PM10", "NO2"],
+                "BORDEAUX": ["PM10", "NO2"],
+                "LILLE": ["PM10", "NO2"],
+                "LYON": ["PM10", "NO2"],
+                "MARSEILLE_AIX": ["PM10", "NO2"],
+                "MONTPELLIER": ["PM10", "NO2"],
+                "NANTES_SAINT_NAZAIRE": ["PM10", "NO2"],
+                "NICE": ["PM10", "NO2"],
+                "STRASBOURG": ["PM10", "NO2"],
+                "TOULOUSE": ["PM10", "NO2"]
              };
              const annees = [2020, 2021, 2022, 2023, 2024];
              const villeSelect = document.getElementById("ville-select");
@@ -217,10 +217,16 @@
              const anneeSelect = document.getElementById("annee-select");
              const iframe = document.getElementById("carte-frame");
 
+             function normalizeVille(ville) {
+                 return ville.replace(/-/g, "_").replace(/'/g, "");
+             }
+
+
              Object.keys(data).forEach(ville => {
                  const option = document.createElement("option");
                  option.value = ville;
                  option.textContent = ville;
+                 option.textContent = ville.replace(/_/g, " ");
                  villeSelect.appendChild(option);
              });
 
@@ -252,7 +258,7 @@
                   if (ville && polluant) {
                       annees.forEach(annee => {
                           const option = document.createElement("option");
-                          option.value = `cartes_villes/carte_ZAG_${ville}_${polluant}_${annee}.html`;
+                          option.value = `cartes_villes/carte_ZAG_${normalizeVille(ville)}_${polluant}_${annee}.html`;
                           option.textContent = annee;
                           anneeSelect.appendChild(option);
                        });
