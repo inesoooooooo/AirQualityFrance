@@ -138,7 +138,7 @@
             </div>
 
             <div class="iframe-wrapper iframe-shadow">
-                <iframe id="carte-frame" src="" style="width:100%; height:600px; border:1px solid #ccc; margin-top:1em;"></iframe>
+                <iframe id="carte-ville-frame" src="" style="width:100%; height:600px; border:1px solid #ccc; margin-top:1em;"></iframe>
             </div>
         </section>
 
@@ -215,7 +215,7 @@
              const villeSelect = document.getElementById("ville-select");
              const polluantSelect = document.getElementById("polluant-select");
              const anneeSelect = document.getElementById("annee-select");
-             const iframe = document.getElementById("carte-frame");
+             const iframe = document.getElementById("carte-ville-frame");
 
              function normalizeVille(ville) {
                  return ville.replace(/-/g, "_").replace(/'/g, "");
