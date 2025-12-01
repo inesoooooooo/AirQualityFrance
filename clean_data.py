@@ -9,11 +9,11 @@ class AirQualityDataset:
     raw_folder : str (chemin du dossier qui contient les fichiers CV bruts)
     clean_folder : str (chemin du dossier où se trouveront les fichiers nettoyés)
     """
-    def __init__(self, raw_folder="data/raw/", clean_folder="data/clean/"):
+    def __init__(self, raw_folder="data/", clean_folder="data/clean/"):
         """
         Initialise les chemins des dossiers et crée le dossier de fichiers nettoyés
         Paramètres :
-        raw_folder : str, optionnel (par défaut "data/raw/")
+        raw_folder : str, optionnel (par défaut "data/")
         clean_folder : str, optionnel (par défaut "data/clean/")
         """
         self.raw_folder = raw_folder
