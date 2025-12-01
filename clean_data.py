@@ -58,7 +58,6 @@ if __name__ == "__main__":
 
 
 """ Test unitaire """
-    import pandas as pd
 
     df_test = pd.DataFrame({
         "Date de début": ["2023-01-01", None],
