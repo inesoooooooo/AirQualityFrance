@@ -3,13 +3,33 @@ import numpy as np
 import os
 
 class AirQualityDataset:
+    """
+    Classe pour gérer le nettoyage des fichiers CSV bruts
+    Attributs :
+    raw_folder : str (chemin du dossier qui contient les fichiers CV bruts)
+    clean_folder : str (chemin du dossier où se trouveront les fichiers nettoyés)
+    """
     def __init__(self, raw_folder="data/raw/", clean_folder="data/clean/"):
+        """
+        Initialise les chemins des dossiers et crée le dossier de fichiers nettoyés
+        Paramètres :
+        raw_folder : str, optionnel (par défaut "data/raw/")
+        clean_folder : str, optionnel (par défaut "data/clean/")
+        """
         self.raw_folder = raw_folder
         self.clean_folder = clean_folder
         os.makedirs(self.clean_folder, exist_ok=True)    
 
 
     def clean_all_csv(self):
+        """
+        Étapes :
+        1- Lire le CSV avec pandas
+        2- Conserve uniquement certaines colonnes
+        3- Supprimer les lignes avec des valeurs manquantes dans 'valeur', 'Lattitude', 'Longitude'
+        4- Extraire l'année depuis la colonne 'Date de début' at ajouter une colonne 'Année'
+        5- Sauvegarder le CSV nettoyé avce le suffixe "_clean"
+        """
         for filename in os.listdir(self.raw_folder):
             if filename.endswith(".csv"):
                 path = os.path.join(self.raw_folder, filename)
