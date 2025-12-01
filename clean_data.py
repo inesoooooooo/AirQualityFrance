@@ -56,24 +56,3 @@ if __name__ == "__main__":
     dataset = AirQualityDataset()
     dataset.clean_all_csv()
 
-
-""" Test unitaire """
-
-    df_test = pd.DataFrame({
-        "Date de début": ["2023-01-01", None],
-        "Polluant": ["PM10", "NO2"],
-        "valeur": [10, None],
-        "Latitude": [48.85, 48.85],
-        "Longitude": [2.35, None],
-        "nom site": ["site1", "site2"],
-        "Zas": ["ZAG PARIS", "ZAG PARIS"]
-    })
-
-    # Simuler le nettoyage
-    df_clean = df_test.dropna(subset=['valeur', 'Latitude', 'Longitude'])
-    df_clean['Année'] = pd.to_datetime(df_clean['Date de début'], errors='coerce').dt.year
-    df_clean = df_clean.drop(columns=['Date de début'])
-    df_clean = df_clean.dropna(subset=['Année'])
-
-    # Affiche True si OK
-    print(len(df_clean) == 1 and "Année" in df_clean.columns)  
