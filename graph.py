@@ -56,7 +56,7 @@ def charger_combiner_csv(data_folder: str) -> pd.DataFrame:
     
     return df_global
 
-def filter_agreger(df: pd.DataFrame, map_villes: dict) -> pd.DataFrame:
+def filtrer_agreger(df: pd.DataFrame, map_villes: dict) -> pd.DataFrame:
     """
     Filtre les polluants PM10 et No2 et les villes définies, puis calcule la moyenne annuelle
     Arguments : df (pd.DataFrame) : DataFrame global
