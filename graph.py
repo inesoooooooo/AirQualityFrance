@@ -8,7 +8,7 @@ from collections import OrderedDict
 DATA_FOLDER = 'data/clean'
 
 # Correspondance entre le code ZAG dans les données et le nom de la ville
-MAP_VILLES = {
+map_villes = {
     'ZAG PARIS': 'Paris',
     'ZAG NANTES-SAINT-NAZAIRE': 'Nantes',
     'ZAG MONTPELLIER': 'Montpellier',
@@ -62,12 +62,12 @@ def filtrer_agreger(df: pd.DataFrame, map_villes: dict) -> pd.DataFrame:
     Arguments : df (pd.DataFrame) : DataFrame global
     Returns : pd.DataFrame final agrégé par année, polluant et ville
     """
-    df_filtre = df_global[
-        (df_global['Polluant'].isin(['PM10', 'NO2'])) & 
-        (df_global['Zas'].isin(MAP_VILLES.keys()))
+    df_filtre = df[
+        (df['Polluant'].isin(['PM10', 'NO2'])) & 
+        (df['Zas'].isin(MAP_VILLES.keys()))
     ].copy()
 
-    df_filtre['Ville'] = df_filtre['Zas'].map(MAP_VILLES)
+    df_filtre['Ville'] = df_filtre['Zas'].map(map_villes)
     df_final = df_filtre.groupby(['Annee', 'Polluant', 'Ville'])['Concentration'].mean().reset_index()
     df_final = df_final.sort_values(by='Annee')
 
