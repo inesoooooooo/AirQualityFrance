@@ -15,6 +15,15 @@ def get_air_quality_index(row):
     """
     Classifie une concentration de polluant (valeur) selon l'indice ATMO simplifié.
     Retourne une des 4 catégories : 'BON', 'MOYEN', 'DÉGRADÉ', 'MAUVAIS'.
+
+    Les seuils sont basés sur l'indice ATMO Français pour les polluants NO2 et PM10.
+    Toute autre polluant est classifié comme "NON CLASSIFIÉ".
+
+    Args:
+        row (pd.Series): Ligne de données contenant au moins 'polluant' (str) et 'valeur' (float).
+
+    Returns:
+        str: La catégorie de qualité de l'air ('BON', 'MOYEN', 'DÉGRADÉ', 'MAUVAIS', 'NON CLASSIFIÉ').
     """
     polluant = row['polluant']
     valeur = row['valeur']
@@ -59,6 +68,24 @@ def get_air_quality_index(row):
 # -----------------------------------------------------------
 
 def load_clean_data(folder="data/clean/"):
+    """
+    Charge et nettoie les données d'un dossier spécifié.
+
+    Concatène tous les fichiers CSV se terminant par '_clean.csv' dans le dossier,
+    standardise les noms de colonnes, convertit la colonne 'valeur' en numérique,
+    supprime les lignes avec des valeurs manquantes essentielles (valeur, latitude,
+    longitude) et ajoute la colonne 'indice_qualite_air' en utilisant get_air_quality_index.
+
+    Args:
+        folder (str): Le chemin du dossier contenant les fichiers CSV nettoyés.
+                      Par défaut, "data/clean/".
+
+    Returns:
+        pd.DataFrame: Un DataFrame unique et nettoyé avec l'indice de qualité de l'air calculé.
+
+    Raises:
+        ValueError: Si aucun fichier *_clean.csv n'est trouvé dans le dossier spécifié.
+    """
     all_files = glob.glob(os.path.join(folder, "*_clean.csv"))
     dfs = []
 
@@ -199,6 +226,17 @@ app.layout = html.Div([
     Input("polluant", "value")
 )
 def update_map(annee, polluant):
+    """
+    Met à jour la carte interactive en fonction de l'année et du polluant sélectionnés.
+
+    Args:
+        annee (int): L'année sélectionnée via le slider.
+        polluant (str): Le polluant sélectionné via le dropdown.
+
+    Returns:
+        dict: Un objet figure Plotly (dictionnaire) pour le composant dcc.Graph.
+              Retourne un layout vide si les données sont manquantes ou filtrées.
+    """
     if df.empty or annee is None or polluant is None:
         return {}
     
@@ -271,6 +309,18 @@ if not df.empty:
 # -----------------------------------------------------------
 
 def nettoyer_nom_ville(ville):
+    """
+    Nettoie le nom d'une ville pour créer un nom de fichier valide.
+
+    Remplace les espaces, tirets, barres obliques par des underscores et supprime
+    les espaces en début/fin.
+
+    Args:
+        ville (str): Le nom de la ville (ZAS) à nettoyer.
+
+    Returns:
+        str: Le nom de la ville nettoyé.
+    """
     # on nettoie le nom des villes pour générer des noms de fichiers valides et qui vont pas faire beuguer le code
     return (
         str(ville)
