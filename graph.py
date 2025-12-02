@@ -64,7 +64,7 @@ def filtrer_agreger(df: pd.DataFrame, map_villes: dict) -> pd.DataFrame:
     """
     df_filtre = df[
         (df['Polluant'].isin(['PM10', 'NO2'])) & 
-        (df['Zas'].isin(MAP_VILLES.keys()))
+        (df['Zas'].isin(map_villes.keys()))
     ].copy()
 
     df_filtre['Ville'] = df_filtre['Zas'].map(map_villes)
