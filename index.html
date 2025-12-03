@@ -284,7 +284,7 @@
               polluantSelect.addEventListener("change", () => {
                   anneeSelect.innerHTML = '<option value="">-- Choisissez une année --</option>';
                   anneeSelect.disabled = true;
-                  iframe.src = "";
+                  iframeVille.src = "";
 
                   const ville = villeSelect.value;
                   const polluant = polluantSelect.value;
@@ -299,7 +299,7 @@
                   }
                });
                anneeSelect.addEventListener("change", () => {
-                   iframe.src = anneeSelect.value || "";
+                   iframeVille.src = anneeSelect.value || "";
                });
            });
                  
