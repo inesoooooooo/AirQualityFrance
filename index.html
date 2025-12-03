@@ -38,7 +38,7 @@
     Cette platforme propose un focus local sur les 10 plus grandes agglomérations françaises.<br>
     Ces villes, comptant parmi les plus peuplées et dynamiques du pays, sont analysées pour mieux comprendre les enjeux spécifiques de leur qualité de l’air.<br>
     Chaque carte interactive permet d’explorer la distribution spatiale des niveaux de pollution à leur échelle urbaine.
-</p>
+           </p>
 
             <p>
                 Elle permet de suivre les niveaux de pollution, d’en analyser les tendances dans le temps et d’identifier les zones les plus exposées à l’aide de cartes, de graphiques et d’indicateurs synthétiques.
@@ -91,25 +91,22 @@
             </p>
 
             <div class="select-wrapper">
-                <label for="carte-select">Choisissez un polluant et une année :</label>
-                <select id="carte-select">
-                    <option value="carte_interactive.html/carte_PM10_2020.html">PM₁₀ — 2020</option>
-                    <option value="carte_interactive.html/carte_PM10_2021.html">PM₁₀ — 2021</option>
-                    <option value="carte_interactive.html/carte_PM10_2022.html">PM₁₀ — 2022</option>
-                    <option value="carte_interactive.html/carte_PM10_2023.html">PM₁₀ — 2023</option>
-                    <option value="carte_interactive.html/carte_PM10_2024.html">PM₁₀ — 2024</option>
-                    <option value="carte_interactive.html/carte_NO2_2020.html">NO₂ — 2020</option>
-                    <option value="carte_interactive.html/carte_NO2_2020.html">NO₂ — 2021</option>
-                    <option value="carte_interactive.html/carte_NO2_2020.html">NO₂ — 2022</option>
-                    <option value="carte_interactive.html/carte_NO2_2020.html">NO₂ — 2023</option>
-                    <option value="carte_interactive.html/carte_NO2_2024.html">NO₂ — 2024</option>
+                <label for="polluant-national">Polluant :</label>
+                <select id="polluant-national">
+                    <option value="">-- Choisissez un polluant --</option>
+                </select>
+
+                <label for="annee-national">Année :</label>
+                <select id="annee-national" disabled>
+                    <option value="">-- Choisissez une année --</option>
                 </select>
             </div>
 
             <div class="iframe-wrapper iframe-shadow">
-                <iframe id="carte-frame" src="carte_interactive.html/carte_PM10_2020.html" title="Carte nationale PM10"></iframe>
+                <iframe id="carte-national-frame" src="" style="width:100%; height:700px; border:1px solid #ccc; margin-top:1em;"></iframe>
             </div>
         </section>
+     
 
         <!-- CARTES VILLES -->
         <section id="cartes-villes" class="content-section fade-in">
@@ -211,11 +208,47 @@
                 "STRASBOURG": ["PM10", "NO2"],
                 "TOULOUSE": ["PM10", "NO2"]
              };
+             const polluants = ["PM10", "NO2"];
              const annees = [2020, 2021, 2022, 2023, 2024];
+            
              const villeSelect = document.getElementById("ville-select");
              const polluantSelect = document.getElementById("polluant-select");
              const anneeSelect = document.getElementById("annee-select");
-             const iframe = document.getElementById("carte-ville-frame");
+             const iframeVille = document.getElementById("carte-ville-frame");
+            
+             const polluantNational = document.getElementById("polluant-national");
+             const anneeNational = document.getElementById("annee-national");
+             const iframeNational = document.getElementById("carte-national-frame");
+             
+             polluants.forEach(p => {
+                 const option = document.createElement("option");
+                 option.value = p;
+                 option.textContent = p;
+                 polluantNational.appendChild(option);
+            });
+
+            polluantNational.addEventListener("change", () => {
+                anneeNational.innerHTML = '<option value="">-- Choisissez une année --</option>';
+                anneeNational.disabled = true;
+                iframeNational.src = "";
+
+                const polluant = polluantNational.value;
+                if (polluant) {
+                    annees.forEach(annee => {
+                        const option = document.createElement("option");
+                        option.value = `carte_interactive.html/carte_${polluant}_${annee}.html`;
+                        option.textContent = annee;
+                        anneeNational.appendChild(option);
+                    });
+                    anneeNational.disabled = false;
+                }
+            });
+
+            anneeNational.addEventListener("change", () => {
+                iframeNational.src = anneeNational.value || "";
+            });
+
+
 
              function normalizeVille(ville) {
                  return ville.replace(/-/g, "_").replace(/'/g, "");
@@ -235,7 +268,7 @@
                  anneeSelect.innerHTML = '<option value="">-- Choisissez une année --</option>';
                  polluantSelect.disabled = true;
                  anneeSelect.disabled = true;
-                 iframe.src = "";
+                 iframeVille.src = "";
 
                  const ville = villeSelect.value;
                  if (ville) {
