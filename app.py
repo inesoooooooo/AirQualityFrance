@@ -6,14 +6,10 @@ import os
 import glob
 import numpy as np
 
-# -----------------------------------------------------------
-# Fonction de classification Indice ATMO officiel Français en 4 niveaux
-# Ces seuils sont basés sur l'indice ATMO Français pour les polluants NO2 ET PM10.
-# -----------------------------------------------------------
 
 def get_air_quality_index(row):
     """
-    Classifie une concentration de polluant (valeur) selon l'indice ATMO simplifié.
+    Classifie une concentration de polluant (valeur en µg/m³) selon l'indice ATMO simplifié.
     Retourne une des 4 catégories : 'BON', 'MOYEN', 'DÉGRADÉ', 'MAUVAIS'.
 
     Les seuils sont basés sur l'indice ATMO Français pour les polluants NO2 et PM10.
@@ -28,17 +24,13 @@ def get_air_quality_index(row):
     polluant = row['polluant']
     valeur = row['valeur']
 
-    # Définition des seuils (en µg/m³) pour les 4 catégories (Bon, Moyen, Dégradé, Mauvais)
     seuils = {
-        # NO2 - Dioxyde d'azote 
         "NO2": {
             "BON": 40,
             "MOYEN": 80,
             "DÉGRADÉ": 180,
             "MAUVAIS": np.inf
         },
-        
-        # PM10 - Particules
         "PM10": {
             "BON": 20,
             "MOYEN": 40,
@@ -52,7 +44,6 @@ def get_air_quality_index(row):
 
     seuil = seuils[polluant]
     
-    # Logique de classification
     if valeur <= seuil["BON"]:
         return "BON"
     elif valeur <= seuil["MOYEN"]:
@@ -63,13 +54,9 @@ def get_air_quality_index(row):
         return "MAUVAIS"
 
 
-# -----------------------------------------------------------
-# 🔶 1. Chargement automatique et Nettoyage des données
-# -----------------------------------------------------------
-
 def load_clean_data(folder="data/clean/"):
     """
-    Charge et nettoie les données d'un dossier spécifié.
+    Charge et nettoie les données du dossier data/clean
 
     Concatène tous les fichiers CSV se terminant par '_clean.csv' dans le dossier,
     standardise les noms de colonnes, convertit la colonne 'valeur' en numérique,
@@ -98,37 +85,29 @@ def load_clean_data(folder="data/clean/"):
             continue
 
     if len(dfs) == 0:
-        raise ValueError("⚠ Aucun fichier *_clean.csv trouvé dans data/clean/. Vérifiez le chemin et les noms des fichiers.")
+        raise ValueError("Aucun fichier *_clean.csv trouvé dans data/clean/. Vérifiez le chemin et les noms des fichiers.")
 
     df = pd.concat(dfs, ignore_index=True)
 
-    # Standardisation des colonnes
     df.columns = df.columns.str.lower().str.replace(" ", "_").str.replace("é", "e")
 
-    # Correction du nom de la colonne année si besoin
     if 'annee' in df.columns:
         df = df.rename(columns={'annee': 'année'})
     
-    # Conversion en numérique
     df['valeur'] = pd.to_numeric(df['valeur'], errors='coerce')
     df = df.dropna(subset=['valeur', 'latitude', 'longitude'])
 
-    # Créer la colonne Indice Qualité Air
+
     df["indice_qualite_air"] = df.apply(get_air_quality_index, axis=1)
 
     return df
 
-# Gérer l'exception si le chargement échoue
 try:
     df = load_clean_data()
 except ValueError as e:
     print(e)
-    # Créer un DataFrame vide pour ne pas bloquer le site
     df = pd.DataFrame(columns=["polluant", "année", "latitude", "longitude", "valeur", "nom_site", "zas", "indice_qualite_air"])
 
-# -----------------------------------------------------------
-# 🔶 2. Récupération des valeurs pour les dropdowns et couleurs
-# -----------------------------------------------------------
 
 Polluant_ = {
     "PM10":"PM\u2081\u2080",
@@ -141,7 +120,7 @@ else:
     polluants_disponibles = []
     annees_disponibles = []
 
-# Définir l'ordre et les couleurs pour l'Indice Qualité Air (Vert/Jaune/Orange/Rouge)
+
 ORDRE_QUALITE = ["BON", "MOYEN", "DÉGRADÉ", "MAUVAIS"]
 COULEURS_QUALITE = {
     "BON": "green",
@@ -150,9 +129,6 @@ COULEURS_QUALITE = {
     "MAUVAIS": "red",
 }
 
-# -----------------------------------------------------------
-# 🔶 3. Application Dash et Layout
-# -----------------------------------------------------------
 
 app = dash.Dash(__name__)
 
@@ -162,7 +138,6 @@ app.layout = html.Div([
             style={"textAlign": "center", "marginBottom": "20px"}),
 
     html.Div([
-        # Slider pour l'année (comme sur le croquis)
         html.Div([
             html.Label("Choix de l'année :", style={'marginBottom': '10px'}),
             dcc.Slider(
@@ -176,7 +151,6 @@ app.layout = html.Div([
             )
         ], style={"width": "45%", "display": "inline-block", "padding": "10px"}),
 
-        # Dropdown pour le polluant
         html.Div([
             html.Label("Choisissez un polluant :"),
             dcc.Dropdown(
@@ -190,7 +164,7 @@ app.layout = html.Div([
 
     dcc.Graph(id="carte_pollution", style={"height": "800px"}),
 
-    # Légende statique Indice Qualité Air (pour ressembler au croquis)
+
     html.Div([
         html.H3("Qualité de l'air (Indice ATMO simplifié)", style={"textAlign": "center", "marginTop": "20px"}),
         #Niveaux de qualité de l'air
@@ -215,10 +189,6 @@ app.layout = html.Div([
 
 ], style={"fontFamily": "Arial", "padding": "20px"})
 
-
-# -----------------------------------------------------------
-# 🔶 4. Callback pour mettre à jour la carte
-# -----------------------------------------------------------
 
 @app.callback(
     Output("carte_pollution", "figure"),
@@ -254,14 +224,11 @@ def update_map(annee, polluant):
         dff,
         lat="latitude",
         lon="longitude",
-        # Utilise l'indice catégoriel pour la couleur
         color="indice_qualite_air", 
         size="valeur",
         hover_name="nom_site",
         hover_data={"valeur": True, "zas": True, "latitude": False, "longitude": False},
-        # Force les couleurs Vert/Jaune/Orange/Rouge
         color_discrete_map=COULEURS_QUALITE, 
-        # Force l'ordre de la légende
         category_orders={"indice_qualite_air": ORDRE_QUALITE}, 
         size_max=30,
         zoom=5,
@@ -279,7 +246,6 @@ def update_map(annee, polluant):
 print("df vide ?", df.empty)
 print("annees_disponibles :", annees_disponibles)
 print("polluants_disponibles :", polluants_disponibles)
-#générer le fichier html
 if not df.empty:
     for annee in annees_disponibles:
         for polluant in polluants_disponibles:
@@ -303,10 +269,7 @@ if not df.empty:
                 nom_fichier = f"carte_{polluant}_{annee}.html".replace(" ", "_").replace("₁", "1").replace("₂","2")
                 fig.write_html(nom_fichier)
                 print(f"Carte interactive sauvegardée sous {nom_fichier}")
-                
-# -----------------------------------------------------------
-# 🔶 5. Génération des cartes par villes
-# -----------------------------------------------------------
+
 
 def nettoyer_nom_ville(ville):
     """
@@ -321,7 +284,6 @@ def nettoyer_nom_ville(ville):
     Returns:
         str: Le nom de la ville nettoyé.
     """
-    # on nettoie le nom des villes pour générer des noms de fichiers valides et qui vont pas faire beuguer le code
     return (
         str(ville)
         .strip()
@@ -355,10 +317,6 @@ for ville in villes_disponibles:
         )
         fig.write_html(f"cartes_villes/carte_{nettoyer_nom_ville(ville)}.html", include_plotlyjs='inline')
 
-
-# -----------------------------------------------------------
-# 🔶 6. Lancement
-# -----------------------------------------------------------
 
 if __name__ == "__main__":
     app.run(debug=False, use_reloader=False)
