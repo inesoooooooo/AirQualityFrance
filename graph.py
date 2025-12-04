@@ -2,12 +2,32 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import os
+import pooch
+import zipfile
 import glob
 from collections import OrderedDict
 
+
 DATA_FOLDER = 'data/clean'
 
-# Correspondance entre le code ZAG dans les données et le nom de la ville
+DATA_POOCH = pooch.create(
+    path=pooch.os_cache("qualite_air"), 
+    base_url="https://raw.githubusercontent.com/inesoooooooo/fichier_/main/"
+)
+DATA_POOCH.registry = {"clean.zip": None}
+
+def extraction_clean_data(destination_folder=DATA_FOLDER):
+    """
+    Télécharge clean.zip via Pooch et l'extrait dans data/clean/
+    """
+    zip_path = DATA_POOCH.fetch("clean.zip")
+
+    os.makedirs(destination_folder, exist_ok=True)
+
+    with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+        zip_ref.extractall(destination_folder)
+
+    
 map_villes = {
     'ZAG PARIS': 'Paris',
     'ZAG NANTES-SAINT-NAZAIRE': 'Nantes',
@@ -21,8 +41,6 @@ map_villes = {
     'ZAG LILLE': 'Lille'
 }
 
-tous_les_dfs = []
-print("1. Chargement et combinaison des données...")
 
 def charger_combiner_csv(data_folder: str) -> pd.DataFrame:
     """
@@ -32,21 +50,19 @@ def charger_combiner_csv(data_folder: str) -> pd.DataFrame:
     Returns:
     pd.DataFrame: DataFrame combiné avec les colonnes renommées et typses corrects
     """
-    fichiers_a_combiner = glob.glob(os.path.join(DATA_FOLDER, '*_clean.csv'))
+    fichiers_a_combiner = glob.glob(os.path.join(data_folder, '*_clean.csv'))
 
     if not fichiers_a_combiner:
-        print(f"\nERREUR CRITIQUE: Aucun fichier CSV de nettoyage trouvé dans le dossier {DATA_FOLDER}.")
         exit()
-
+    tous_les_dfs = []
     for chemin_complet in fichiers_a_combiner:
         try:
             df_temp = pd.read_csv(chemin_complet, sep=',', decimal='.') 
             tous_les_dfs.append(df_temp)
-        except Exception as e:
-            print(f"Erreur lors du traitement de {chemin_complet}: {e}")
+        except:
+            continue
 
     if not tous_les_dfs:
-        print("Échec du chargement. Script interrompu.")
         exit()
 
     df_global = pd.concat(tous_les_dfs, ignore_index=True)
@@ -73,7 +89,6 @@ def filtrer_agreger(df: pd.DataFrame, map_villes: dict) -> pd.DataFrame:
 
     return df_final
 
-print("2. Agrégation des données terminée. Prêt pour la visualisation.")
 
 def creer_graphique(df_final: pd.DataFrame) -> go.Figure:
     """
@@ -109,7 +124,7 @@ def creer_graphique(df_final: pd.DataFrame) -> go.Figure:
             )
      
     boutons_ville = []
-    nombre_de_polluants = 2 # PM10 et NO2
+    nombre_de_polluants = 2
     
     for i, ville in enumerate(villes_disponibles):
         visibilite = [False] * len(villes_disponibles) * nombre_de_polluants 
@@ -154,8 +169,12 @@ def exporter_graphique (fig: go.Figure, fichier_html: str = "graphique.html"):
                 fichier_html (str): Nom du fichier de sortie HTML
     """
     fig.write_html("graphique.html") 
-    print("\n3. Graphique interactif sauvegardé sous graphique.html")
-
     fig.show()
 
+if __name__ == "__main__":
+    extraction_clean_data(DATA_FOLDER)
+    df_global = charger_combiner_csv(DATA_FOLDER)
+    df_final = filtrer_agreger(df_global, map_villes)
+    fig = creer_graphique(df_final)
+    exporter_graphique(fig)
 
