@@ -165,8 +165,8 @@ def creer_graphique(df_final: pd.DataFrame) -> go.Figure:
 def exporter_graphique (fig: go.Figure, fichier_html: str = "graphique.html"):
     """
     Exporte la figure Plotly en fichier HTML
-    Arguments : fig (go.Figure): Figure Plotly
-                fichier_html (str): Nom du fichier de sortie HTML
+    Arguments: fig (go.Figure): Figure Plotly
+               fichier_html (str): Nom du fichier de sortie HTML
     """
     fig.write_html("graphique.html") 
     fig.show()
