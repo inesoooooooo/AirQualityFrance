@@ -100,9 +100,9 @@ Ce projet nous permettra d'avoir une meilleur compréhension et de mieux visuali
 
 **Nom du projet :** AirQualityFrance  
 
-**Groupe :** [Myriam El Idrissi](https://github.com/MyriamGit18) (22107653),
-            [Ralia Remila](https://github.com/daliaremila) (22416114),
-            [Inès Camus](https://github.com/inesoooooooo) (22511269)
+**Groupe :** - [Myriam El Idrissi](https://github.com/MyriamGit18) (22107653)
+            - [Ralia Remila](https://github.com/daliaremila) (22416114)
+            - [Inès Camus](https://github.com/inesoooooooo) (22511269)
 
 **Université :** Université de Montpellier  
 
