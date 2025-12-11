@@ -53,11 +53,11 @@ gantt
 
     section Analyse & Visualisation
     Création de visualisations (cartes, graphiques) (Dalia + Myriam )   :dalia, 2025-11-04, 2025-11-12
-    Développement de notebooks interactifs (Inès + Dalia)          :ines, 2025-11-13, 2025-11-20
+    Développement de notebooks interactifs (Inès + Dalia)               :ines, 2025-11-13, 2025-11-20
 
     section Rédaction
     Rédaction du README.qmd et rapport mid-term (Tous)              :tous, 2025-10-21, 2025-10-25
-    Préparation des slides pour la présentation (Myriam + ???)      :myriam, 2025-11-26, 2025-11-30
+    Préparation des slides pour la présentation (Myriam + Ines)     :myriam, 2025-11-26, 2025-11-30
 
     section Finalisation
     Tests & vérification du code et notebook (Dalia)                :dalia, 2025-12-01, 2025-12-05
