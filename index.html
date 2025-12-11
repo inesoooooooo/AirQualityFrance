@@ -301,7 +301,53 @@
                anneeSelect.addEventListener("change", () => {
                    iframeVille.src = anneeSelect.value || "";
                });
-           });
+          // ---- AFFICHAGE AUTOMATIQUE AU CHARGEMENT ----
+(function initNational() { 
+    polluantNational.value = polluants[0];
+    anneeNational.innerHTML = '<option value="">-- Choisissez une année --</option>';
+    annees.forEach(annee => {
+        const option = document.createElement("option");
+        option.value = `carte_interactive.html/carte_${polluants[0]}_${annee}.html`;
+        option.textContent = annee;
+        anneeNational.appendChild(option);
+    });
+    anneeNational.disabled = false;
+    anneeNational.value = `carte_interactive.html/carte_${polluants[0]}_${annees[0]}.html`;
+    iframeNational.src = anneeNational.value;
+})();
+
+(function initVille() {
+    const firstVille = Object.keys(data)[0]; 
+    const firstPollutant = data[firstVille][0];
+    const firstYear = annees[0];
+
+    villeSelect.value = firstVille;
+
+    polluantSelect.innerHTML = "";
+    data[firstVille].forEach(p => {
+        const opt = document.createElement("option");
+        opt.value = p;
+        opt.textContent = p;
+        polluantSelect.appendChild(opt);
+    });
+    polluantSelect.disabled = false;
+    polluantSelect.value = firstPollutant;
+
+    anneeSelect.innerHTML = "";
+    annees.forEach(annee => {
+        const opt = document.createElement("option");
+        opt.value = `cartes_villes/carte_ZAG_${normalizeVille(firstVille)}_${firstPollutant}_${annee}.html`;
+        opt.textContent = annee;
+        anneeSelect.appendChild(opt);
+    });
+    anneeSelect.disabled = false;
+
+    anneeSelect.value = `cartes_villes/carte_ZAG_${normalizeVille(firstVille)}_${firstPollutant}_${firstYear}.html`;
+
+    iframeVille.src = anneeSelect.value;
+})();
+
+        });
                  
     </script>
 </body>
