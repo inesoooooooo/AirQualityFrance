@@ -133,9 +133,22 @@ def creer_graphique(df_final: pd.DataFrame) -> go.Figure:
             method='update',
             label=ville,
             args=[
-                {'visible': visibilite},
-                {'title': f"Évolution des concentrations (PM10 et NO2) à {ville}"}
-            ]
+    {'visible': visibilite},
+    {
+        'title': f"Évolution des concentrations (PM10 et NO2) à {ville}",
+        'annotations': [
+            dict(
+                text=f"Les concentrations moyennes à {ville} montrent l’évolution annuelle des PM10 et NO2.",
+                xref="paper", yref="paper",
+                x=0, y=1.08,
+                showarrow=False,
+                align="left",
+                font=dict(size=12)
+            )
+        ]
+    }
+]
+
         )
         boutons_ville.append(bouton)
         
@@ -154,19 +167,30 @@ def creer_graphique(df_final: pd.DataFrame) -> go.Figure:
             )
         ]
     )
-    fig.update_layout(
-        title=f"Évolution des concentrations (PM10 et NO2) à {premiere_ville}",
-        xaxis={'dtick': 1, 'title': 'Année'},
-        yaxis_title='Concentration (µg/m³)',
-        height=600
+    
+       fig.update_layout(
+    title=f"Évolution des concentrations (PM10 et NO2) à {premiere_ville}",
+    annotations=[
+        dict(
+            text=f"Les concentrations moyennes à {premiere_ville} montrent l’évolution annuelle des PM10 et NO2.",
+            xref="paper", yref="paper",
+            x=0, y=1.08,  # juste au-dessus du graphique
+            showarrow=False,
+            align="left",
+            font=dict(size=12)
+        )
+    ],
+    xaxis={'dtick': 1, 'title': 'Année'},
+    yaxis_title='Concentration (µg/m³)',
+    height=600
+)
+
     )
     return fig
 
 def exporter_graphique (fig: go.Figure, fichier_html: str = "graphique.html"):
     """
-    Exporte la figure Plotly en fichier HTML
-    Arguments: fig (go.Figure): Figure Plotly
-               fichier_html (str): Nom du fichier de sortie HTML
+
     """
     fig.write_html("graphique.html") 
     fig.show()
