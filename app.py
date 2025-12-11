@@ -128,6 +128,12 @@ COULEURS_QUALITE = {
 print("df vide ?", df.empty)
 print("annees_disponibles :", annees_disponibles)
 print("polluants_disponibles :", polluants_disponibles)
+
+#générer le fichier html
+# Boucle pour créer et sauvegarder une carte interactive pour chaque polluant et chaque année
+# Filtre les données pour chaque combinaison et génère un graphique Plotly
+
+
 if not df.empty:
     for annee in annees_disponibles:
         for polluant in polluants_disponibles:
