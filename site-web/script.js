@@ -1,20 +1,38 @@
-// Afficher un message de confirmation dans la console du navigateur (F12)
-console.log("Le script.js a été chargé avec succès !");
+// Changement de carte nationale
+const carteSelect = document.getElementById('carte-select');
+const carteFrame = document.getElementById('carte-frame');
 
-// Fonction pour modifier dynamiquement le contenu d'un élément
-function updateFooterYear() {
-    // Récupère l'année en cours
-    const currentYear = new Date().getFullYear();
-    
-    // Récupèrer l'élément footer que nous avons dans index.html
-    const footerElement = document.querySelector('footer p'); 
-
-    // Vérifier si l'élément existe avant de le modifier
-    if (footerElement) {
-        // Change le texte pour mettre à jour l'année
-        footerElement.innerHTML = `&copy; ${currentYear} AirQualitéFrance - Collaboration active.`;
-    }
+if (carteSelect && carteFrame) {
+    carteSelect.addEventListener('change', function () {
+        carteFrame.src = this.value;
+    });
 }
 
-// Appelle la fonction lorsque la page est chargée
-updateFooterYear();
+// Changement de carte ville
+const villeSelect = document.getElementById('ville-select');
+const villeFrame = document.getElementById('ville-frame');
+
+if (villeSelect && villeFrame) {
+    villeSelect.addEventListener('change', function () {
+        villeFrame.src = this.value;
+    });
+}
+
+// Animation d’apparition au scroll
+const animatedSections = document.querySelectorAll('.fade-in');
+
+const observer = new IntersectionObserver(
+    entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    },
+    {
+        threshold: 0.15
+    }
+);
+
+animatedSections.forEach(sec => observer.observe(sec));
