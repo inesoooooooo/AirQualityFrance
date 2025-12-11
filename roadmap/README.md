@@ -1,4 +1,7 @@
 # AirQualityFrance
+## Lien du site : 
+<https://inesoooooooo.github.io/AirQualityFrance/>
+
 ## Introduction:
 
 Nous avons décidé, d’un commun accord, de réaliser un site web dédié à l'étude de **la qualité de l’air en France métropolitaine**. Ce projet vise à analyser l’évolution de la qualité de l’air sur la période **2020 et 2024** en se basant sur des données publiques et des visualisations intéractives. Le public visé par ce site web sont principalement **les personnes sensibles ou vulnérables** souhaitant identifier les villes dans lesquelles elles peuvent s'épanouir sans compromettre leur santé physique. Ce sujet nous tient particulièrement à cœur, car, malheureusement, on peut observer que  le nombre de personnes décédant chaque année des suites de maladies liées à une exposition excessive à la pollution ne cesse d’augmenter. Afin de prévenir certaines maladies ou d'éviter des dommages plus importants, il est essentiel d'analyser ce sujet en profondeur.
@@ -70,17 +73,17 @@ Concernant l'architecture du site, nous avons un dossier **data** où va se trou
 
 Concernant la pipeline, nous allons utiliser les packages suivants pour le traitement et la visualisation des données :
 
--'**pandas**' : manipulation et nettoyage des données
+-**`pandas`** : manipulation et nettoyage des données
 
--'**numpy**' : calculs numériques
+-**`numpy`** : calculs numériques
 
--'**matplotlib**' et '**seaborn**' : visualisations statistiques
+-**`matplotlib`** et **`seaborn`** : visualisations statistiques
 
--'**plotly**' ou '**leaflet**' : visualisations interactives (carte et graphiques dynamiques)
+-**`plotly`** ou '**leaflet**' : visualisations interactives (carte et graphiques dynamiques)
 
--'**quarto**' : génération du site web et intégration du rapport
+-**`quarto`** : génération du site web et intégration du rapport
 
-Nous avons également créée des **branches gits**; la branche **main** qui est la version stable du projet, la branche **Data** dans laquelle on va étudier les datas et la branche **carte-interactive** dans laquelle on va créer les cartes interactives ainsi que la branche **site-web** dans laquelle on va créer le site web.
+Nous avons également créée des **`branches gits`**; la branche **`main`** qui est la version stable du projet, la branche **`Data`** dans laquelle on va étudier les datas et la branche **`carte-interactive`** dans laquelle on va créer les cartes interactives ainsi que la branche **`site-web`** dans laquelle on va créer le site web.
 
 **Le choix des données**:
 
