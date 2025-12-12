@@ -4,23 +4,23 @@
 
 ## Introduction:
 
-Nous avons décidé, d’un commun accord, de réaliser un site web dédié à l'étude de **la qualité de l’air en France métropolitaine**. Ce projet vise à analyser l’évolution de la qualité de l’air sur la période **2020 et 2024** en se basant sur des données publiques et des visualisations intéractives. Le public visé par ce site web sont principalement **les personnes sensibles ou vulnérables** souhaitant identifier les villes dans lesquelles elles peuvent s'épanouir sans compromettre leur santé physique. Ce sujet nous tient particulièrement à cœur, car, malheureusement, on peut observer que  le nombre de personnes décédant chaque année des suites de maladies liées à une exposition excessive à la pollution ne cesse d’augmenter. Afin de prévenir certaines maladies ou d'éviter des dommages plus importants, il est essentiel d'analyser ce sujet en profondeur.
+Nous avons décidé, d’un commun accord, de réaliser un site web dédié à l'étude de **la qualité de l’air en France métropolitaine**. Ce projet vise à analyser l’évolution de la qualité de l’air sur la période **2020 et 2024** en se basant sur des données publiques et des visualisations interactives. Le public visé est principalement composé de **personnes sensibles ou vulnérables** souhaitant identifier les villes dans lesquelles elles peuvent vivre sans compromettre leur santé. Ce sujet nous tient particulièrement à cœur, car on peut malheureusement, observer que  le nombre de personnes décédant chaque année des suites de maladies liées à une exposition excessive à la pollution ne cesse d’augmenter. Afin de prévenir certaines maladies ou d'éviter des dommages plus importants, il est essentiel d'étudier ce phénomène en profondeur.
 Nous aimerions ainsi mieux comprendre :
 - comment la qualité de l’air a-t-elle évolué au fil des années,  
-- quelles villes ont réussi à améliorer la situation,  
+- quelles villes ont réussi à améliorer leur situation,  
 - et quelles sont celles qui rencontrent encore des difficultés à réduire la pollution.
 
 ## Problèmatique : Comment a évolué la qualité de l'air en France métropolitaine entre 2020 et 2024 ?
 
 ## Développement :
 
-Pour répondre au mieux à ce sujet, nous allons créer un site web intéractif permettant de visualiser l'évolution de la qualité de l'air entre 2020 et 2024.
+Pour répondre au mieux à ce sujet, nous avons créer un site web intéractif permettant de visualiser l'évolution de la qualité de l'air entre 2020 et 2024.
 Les utilisateurs pourront :
-- sélectionner l’année à l’aide d’un **curseur allant de 2020 à 2024**,
+- sélectionner une année à grâce à un **menu déroulant allant de 2020 à 2024**,
 - choisir le polluant qu’ils souhaitent analyser (PM10, PM2,5 , NO2, O3...etc.),
--  consulter des **cartes intercatives** représentant le niveau de pollution dans les grandes villes françaises,
--  et observer des **graphiques temporels** illustrant la variation des principaux polluants sélectionnés pour chaque ville au fil des années.
-  Nous avons comme objectif de réaliser un site qui ressemble aux mieux aux croquis qu'on a pu faire :
+-  consulter des **cartes intercatives** représentant les niveaux de pollution dans les principales villes françaises,
+-  et visualiser des **graphiques temporels** illustrant la variation des polluants sélectionnés pour chaque ville au fil des années.
+  Nous avons pour objectif de réaliser un site qui ressemble aux mieux aux croquis préparatoires que nous avons réalisés :
 
 ![](../images/Graphique.jpeg)
 
