@@ -115,6 +115,8 @@ if not df.empty:
 else:
     polluants_disponibles = []
     annees_disponibles = []
+    
+# Boucle pour créer et sauvegarder une carte interactive pour chaque polluant et chaque année
 
 
 ORDRE_QUALITE = ["BON", "MOYEN", "DÉGRADÉ", "MAUVAIS"]
@@ -155,6 +157,7 @@ if not df.empty:
                     title=f"Indice de la qualité de l'air pour {polluant} en {annee}"
                 )
                 nom_fichier = f"carte_{polluant}_{annee}.html".replace(" ", "_").replace("₁", "1").replace("₂","2")
+                # Génère une carte pour chaque ville (ZAG) disponible dans le dataset
                 fig.write_html(nom_fichier)
                 print(f"Carte interactive sauvegardée sous {nom_fichier}")
 
