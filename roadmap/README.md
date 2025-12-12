@@ -69,7 +69,7 @@ gantt
 
 # Architecture du projet : 
 
-Concernant l'architecture du site, nous avons un dossier **data** où va se trouver toutes les datas qu'on va utiliser dans ce dossier on a deux sous dossiers, dans le premier il y a les datas brut et dans le deuxième se trouvera les datas qu'on a nettoyé. Nous avons également un dossier **images** dans lequel se trouve l'intégralité des croquis qu'on a pu faire et pour nous permettre de visualiser à quoi notre site doit aboutir. De plus, nous avons également un dossier **site** où va se trouver tout les fichiers menant à la création du site web. 
+Concernant l'architecture du site, nous avons un dossier **data** où va se trouver toutes les données qu'on va utiliser dans ce dossier on a deux sous dossiers, dans le premier il y a les données brutes et dans le deuxième se trouvera les données qu'on a nettoyées(**clean**). Nous avons également un dossier **images** dans lequel se trouve l'intégralité des croquis qu'on a pu réalisé au cours de la réflexion initiale et qui nous a permis de visualiser à quoi notre site doit aboutir. De plus, nous avons également un dossier **site-web** où va se trouver tous les fichiers menant à la création du site web. 
 
 Concernant la pipeline, nous allons utiliser les packages suivants pour le traitement et la visualisation des données :
 
@@ -79,19 +79,21 @@ Concernant la pipeline, nous allons utiliser les packages suivants pour le trait
 
 -**`matplotlib`** et **`seaborn`** : visualisations statistiques
 
--**`plotly`** ou '**leaflet**' : visualisations interactives (carte et graphiques dynamiques)
+-**`plotly`** : graphiques interactives 
+
+-**`leaflet`** (JavaScript): génération des cartes interactives
 
 -**`quarto`** : génération du site web et intégration du rapport
 
 Les **`branches gits`**;
 - La branche **`main`** : qui est la version stable du projet.
-- La branche **`Data`** dans laquelle on va étudier les datas.
+- La branche **`Data`** étude et préparation des données.
 - La branche **`carte-interactive`** dans laquelle on va créer les cartes interactives.
-- Et la branche **`site-web`** dans laquelle on va créer le site web.
+- Et la branche **`site-web`** dans laquelle on va dèvelopper le site web.
 
 **Le choix des données**:
 
-Le choix de la plateforme Geod'air (Gestion des données d'Observation de la qualité de l'AIR) est à la fois rigoureux et stratégique, car elle représente la base de données nationale de référence sur la qualité de l'air en France. Gérée par l'INERIS (Institut National de l'Environnement industriel et des RISques) et le LCSQA (Laboratoire Central de Surveillance de la Qualité de l'Air), cette source garantit la fiabilité et l'exactitude des mesures de polluants (PM10, PM2,5 , NO2,... etc.) pour la période 2020-2024 que nous étudions. Geod'air centralise les données de toutes les AASQA( Association Agréée de Surveillance de la Qualité de l'Air), assurant une couverture complète de la France métropolitaine, essentielle pour nos cartes comparatives. De plus, son accessibilité via des exports CSV et son API simplifient grandement l'intégration et le traitement des données dans notre pipeline technique Python/Quarto.
+Nous avons choisi la plateforme **Geod'air** (Gestion des données d'Observation de la qualité de l'AIR), base de données nationale de référence sur la qualité de l'air en France. Gérée par l'INERIS (Institut National de l'Environnement industriel et des RISques) et le LCSQA (Laboratoire Central de Surveillance de la Qualité de l'Air), cette source garantit la fiabilité et l'exactitude des mesures de polluants (PM10, PM2,5 , NO2,... etc.) pour la période 2020-2024 que nous étudions. Geod'air centralise les données de toutes les AASQA( Association Agréée de Surveillance de la Qualité de l'Air), assurant une couverture complète de la France métropolitaine, essentielle pour nos cartes comparatives. De plus, son accessibilité via des exports CSV et son API simplifient grandement l'intégration et le traitement des données dans notre pipeline technique Python/Quarto.
 
 ## Conclusion
 Ce projet nous permettra d'avoir une meilleur compréhension et de mieux visualiser l'impact de la pollution sur la population française et de sensibiliser le public à l'importance de la qualté de l'air. Grâce à la visualisation interactive des données, les utilisateurs pourront identifier plus facilement les zones à risque et suivre l’évolution des efforts de réduction de la pollution dans différentes villes françaises. C'est aussi très importants car la pollution contribue à l’augmentation des maladies respiratoires et affecte directement la santé des habitants. On espére que ce site pourra sensibiliser le public et aider à prendre conscience de l’importance de préserver la qualité de l’air. Parce que c'est aujourd'hui que nous construisons notre future.
