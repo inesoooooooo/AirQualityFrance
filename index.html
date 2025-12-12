@@ -8,6 +8,7 @@
     <script defer src="script.js"></script>
 </head>
 <body>
+    <!-- HEADER : logo et navigation -->
     <header class="site-header">
         <div class="container">
             <div class="logo-block">
@@ -29,13 +30,14 @@
         </div>
     </header>
 
+    <!-- MAIN : sections de contenu -->
     <main class="container">
 
         <!-- INTRO -->
         <section id="intro" class="content-section fade-in">
             <h2>Un autre regard sur la qualité de l’air</h2>
             <p>
-    Cette platforme propose un focus local sur les 10 plus grandes agglomérations françaises.<br>
+    Cette plateforme propose un focus local sur les 10 plus grandes agglomérations françaises.<br>
     Ces villes, comptant parmi les plus peuplées et dynamiques du pays, sont analysées pour mieux comprendre les enjeux spécifiques de leur qualité de l’air.<br>
     Chaque carte interactive permet d’explorer la distribution spatiale des niveaux de pollution à leur échelle urbaine.
            </p>
@@ -190,11 +192,12 @@
         </section>
 
     </main>
-
+    <!-- FOOTER -->
     <footer>
         <p>© 2025 — Air Qualité France • Données issues de dispositifs officiels de surveillance de la qualité de l’air.</p>
     </footer>
 
+    <!-- SCRIPT : gestion des menus et iframe -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const data = {
@@ -227,7 +230,8 @@
                  option.textContent = p;
                  polluantNational.appendChild(option);
             });
-
+            
+            // --- gestion changement polluant national ---
             polluantNational.addEventListener("change", () => {
                 anneeNational.innerHTML = '<option value="">-- Choisissez une année --</option>';
                 anneeNational.disabled = true;
