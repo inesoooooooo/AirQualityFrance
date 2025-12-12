@@ -116,7 +116,7 @@ else:
     polluants_disponibles = []
     annees_disponibles = []
     
-# Boucle pour créer et sauvegarder une carte interactive pour chaque polluant et chaque année
+
 
 
 ORDRE_QUALITE = ["BON", "MOYEN", "DÉGRADÉ", "MAUVAIS"]
